@@ -1,0 +1,50 @@
+
+.container {
+	margin-top: 20px;
+}
+
+td:first-child {
+    width: 20%;
+}
+td:last-child {
+    width: 10%;
+}
+
+.list-group-item {
+  height: 40px;
+  font-weight: bold
+}
+
+/*.list-group-item:first-child {
+  background: #F1F1F1
+  
+}*/
+
+ul {
+
+}
+
+.row-clickable, .item-clickable {
+	cursor: pointer
+}
+a {
+    color: #428BCA;
+    text-decoration: none;
+}
+
+/*a:hover, a:focus {
+    color: #2A6496;
+    text-decoration: underline;
+}*/
+new-user-input {
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+new-user-input > input {
+  margin-top: 20px;
+}
+
+
+

@@ -1,0 +1,28 @@
+<div class="container-fluid">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="panel-title">
+        <h4>INBOX</h4></div>
+    </div>
+    <div class="panel-body">
+      <table class="table">
+        <thead>
+          <tr class="row">
+            <th>From:</th>
+            <th>Subject:</th>
+            <th>Date:
+              <th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="row row-clickable" ng-repeat="mail in $ctrl.mails" ng-click="$ctrl.showMailItem($index)">
+
+            <td><a href="">{{mail.from}}</a></td>
+            <td><a href="">{{mail.subject}}</a></td>
+            <td><a href="">{{mail.date}}</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
