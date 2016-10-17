@@ -1,7 +1,7 @@
 <div class="categories col-sm-2" id="categories-container">
 	<div class="navbar">
-		<div class="list-group-item">NEW</div>
-		<a><div class="list-group-item item-clickable" ng-click="$ctrl.showMailList()">INBOX</div></a>
+		<a ui-sref="mails.newmail"><div class="list-group-item item-clickable" >NEW</div></a>
+		<a ui-sref="mails.inbox({removeMail: $ctrl.removeMail})"><div class="list-group-item item-clickable">INBOX</div></a>
 		<div class="list-group-item">DRAFTS</div>
 		<div class="list-group-item">SENT</div>
 		<div class="list-group-item">SPAM</div>

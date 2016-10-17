@@ -5,16 +5,17 @@
 		templateUrl: 'src/templates/mailList.html',
 		bindings: {
 			mails: '<',
-			showMailItemMethod: '&showMailItem',
-			test: '&'
+			removeMail: '&'
 		},
-		controller: MailListController
-	})
+		controller: MailListComponentController
+	});
 
-		    function MailListController() {
-	      this.showMailItem = function(itemIndex) {
-	        this.showMailItemMethod({index: itemIndex})
-	      }
-	    }
-	
+	function MailListComponentController(MailBoxService) {
+
+		this.sortType = "";
+		this.removeMail = function(mail) {
+			MailBoxService.removeMail(mail)
+			.then(() => this.mails.splice(this.mails.indexOf(mail), 1));
+		}
+	}
 })();

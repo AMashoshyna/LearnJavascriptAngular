@@ -6,7 +6,8 @@
 		.component('mailBoxMenu', {
 	  templateUrl: 'src/templates/mailBoxMenu.html',
 	  bindings: {
-	    showMailList: '&'
+	    // showMailList: '&',
+	    // createMail: '&'
 	  }
 	  
 	})

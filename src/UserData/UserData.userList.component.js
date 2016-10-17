@@ -19,18 +19,16 @@
 
 
     ctrl.addUser = function(user) {
-	UserCardService.addUser(user).then((newUser) => {
-		UserCardService.getRandomAvatar().then(response => {
-			newUser.avatar = response.results[0].picture.large;
-			console.log(newUser.avatar );
-			ctrl.userData.push(newUser)
+	UserCardService.addUser(user).then(response => {
+			ctrl.userData.push(user)
 		});
 		
-		});
+		
 	};
 
 	ctrl.removeUser = function(user) {
-		UserCardService.removeUser(user).then(() => ctrl.userData.splice(ctrl.userData.indexOf(user), 1));
+		UserCardService.removeUser(user)
+		.then(() => ctrl.userData.splice(ctrl.userData.indexOf(user), 1));
 	}
 
 };

@@ -24,9 +24,6 @@ function UserCardService($http) {
 		.then((response) => response.data);
 	};
 
-	this.getRandomAvatar = function() {
-		return $http.get('//api.randomuser.me/?format=json').then((response) => response.data)
-	}
 
 };
 })();

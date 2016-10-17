@@ -3,22 +3,12 @@
 	margin-top: 20px;
 }
 
-td:first-child {
-    width: 20%;
-}
-td:last-child {
-    width: 10%;
-}
 
 .list-group-item {
   height: 40px;
   font-weight: bold
 }
 
-/*.list-group-item:first-child {
-  background: #F1F1F1
-  
-}*/
 
 ul {
 

@@ -1,11 +1,12 @@
 <div class="panel panel-default">
 	<div class="panel-heading">	
 		<ul class="list-unstyled">
-		<li><b>From: </b>{{$ctrl.mails[$ctrl.index].from}}</li>
-			<li><b>Subject: </b>{{$ctrl.mails[$ctrl.index].subject}}</li>
+		<li><b>From: </b>{{$ctrl.mail.to}}</li>
+			<li><b>Subject: </b>{{$ctrl.mail.subject}}</li>
 		</ul>
 	</div>
 	<div class="panel-body">
-		{{$ctrl.mails[$ctrl.index].text}}
+		{{$ctrl.mail.body}}
 	</div>
+	<button class="btn btn-default btn-primary" ng-click="$ctrl.removeMail($ctrl.mail._id)">REMOVE MAIL</button>
 </div>

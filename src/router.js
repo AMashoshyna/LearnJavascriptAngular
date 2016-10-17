@@ -12,12 +12,13 @@ RouterConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
 		.state('users', {
 			url: '/users',
 			template: ` <user-list></user-list> `
-
 		})
 
 		.state('mails', {
-			url: '/mails',
+			abstract: true,
+			// url: '/mails',
 			template: `<mailbox></mailbox>`
 		})
+
 	}
 })();
