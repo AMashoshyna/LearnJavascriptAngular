@@ -14,8 +14,8 @@
 	function newUserInputController(UserCardService) {
 	var ctrl = this;
 	ctrl.newUser = {
-		email:'',
-		fullName: '',
+		email:'john@mail.com',
+		fullName: 'John Doe',
 	};
 
 	ctrl.addUserWrapper = function() {
