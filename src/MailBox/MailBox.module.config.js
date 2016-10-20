@@ -6,22 +6,19 @@
 
 RouterConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
 function RouterConfig($stateProvider, $urlRouterProvider) {
-	// $urlRouterProvider.otherwise('/');
-
 
 	$stateProvider
 	.state('mails.inbox', {
 		url: '/inbox',
+		parent:'mails',
 		template: `
-		        <div id="detail-view" class="detail-view col-sm-10">
-          <mail-list mails="MailListController.mails" 
-          removeMail="MailListController.removeMail()" show-mail-item="$ctrl.showMailItem(index)">
-          </mail-list>
-        </div>
+
+          <mail-list mails="MailListController.mails"
+           </mail-list>
         `,
         params: {
         	mailId: null,
-        	removeMail: null,
+        	// removeMail: null,
 
         },
         resolve: {
@@ -36,9 +33,7 @@ function RouterConfig($stateProvider, $urlRouterProvider) {
 		url: '/newmail',
 		template: 
 		`
-       <div id="detail-view" class="detail-view col-sm-10">
-        <new-mail add-mail="$ctrl.addMail(mail)"></new-mail>
-        </div>`,
+        <new-mail add-mail="$ctrl.addMail(mail)"></new-mail>`
 	})
 
 	.state('mails.mailFullView', {
@@ -50,7 +45,6 @@ function RouterConfig($stateProvider, $urlRouterProvider) {
 			mailId: null,
 			removeMail: null,
 			// removeMail: $ctrl.removeMail,
-
 		},
 		resolve: {
    	mail: ['$stateParams', 'MailBoxService', 
@@ -61,7 +55,7 @@ function RouterConfig($stateProvider, $urlRouterProvider) {
    controller: 'MailItemController as mailCtrl'
 	})
 	.state('mails.sent', {
-		template: '<h4>Your mail has been sent.</h4>',
+		template: '<div class="panel panel-info"><h4>Your mail has been sent.</h4></div>',
 		url: '/sent'
 	})
 }

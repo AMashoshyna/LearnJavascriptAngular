@@ -1,12 +1,11 @@
 	(function() {
 	'use strict';
 	angular.module('MailBox')
-		.component('mailbox', {
+	.component('mailbox', {
 	  template: 
 	  `
 	     <div class="row">
-	     <mail-box-menu show-mail-list="$ctrl.showMailList()"
-	     create-mail= "$ctrl.createMail()"></mail-box-menu>
+	     <mail-box-menu></mail-box-menu>
           <ui-view></ui-view>
        </div>
       `,

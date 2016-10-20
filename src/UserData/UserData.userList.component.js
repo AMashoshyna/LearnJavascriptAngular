@@ -22,8 +22,6 @@
 	UserCardService.addUser(user).then(response => {
 			ctrl.userData.push(user)
 		});
-		
-		
 	};
 
 	ctrl.removeUser = function(user) {

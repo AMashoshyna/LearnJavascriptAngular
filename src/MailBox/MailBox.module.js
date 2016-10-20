@@ -1,23 +1,19 @@
 (function() {
 	'use strict';
 	angular.module('MailBox', ['ui.router'])
+
+	// route controllers
 	.controller('MailListController', MailListController)
 	.controller('MailItemController', MailItemController);
 
 
-		    MailListController.$inject = ['mails']
-		    function MailListController(mails) {
-            this.mails = mails;
+	MailListController.$inject = ['mails']
+	function MailListController(mails) {
+		this.mails = mails;
+	};
 
-
-	      this.showMailItem = function(itemIndex) {
-	        this.showMailItemMethod({index: itemIndex})
-	      }
-	    };
-
-	    MailItemController.$inject = ['mail'];
-	    function MailItemController(mail) {
-	    	// console.log(mail);
-	    	this.mail = mail;
-	    }
+	MailItemController.$inject = ['mail'];
+	function MailItemController(mail) {
+		this.mail = mail;
+	}
 })();

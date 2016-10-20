@@ -20,20 +20,6 @@
 			to: 'test@test.com',
 		};
 
-
-// Object.defineProperty(this.newMail, 'mailbox', {get: function($q) {
-// 	console.log(MailBoxService.getMailBox());
-// 	var deferred = $q.defer();
-// 	if(MailBoxService.getMailBox()) {
-// 		deferred.resolve(deferred.data)
-// 	} else deferred.reject(function(){
-// 		console.log('no mailbox available');
-// 	})
-
-
-// 	console.log(mailbox);
-// 	return mailbox._id;
-// }})
 		ctrl.addMailWrapper = function(newMail) {
 			ctrl.addMail({mail: this.newMail});
 			this.newMail = {
@@ -43,6 +29,5 @@
 		};
 
 		}
-
 	}
 })();

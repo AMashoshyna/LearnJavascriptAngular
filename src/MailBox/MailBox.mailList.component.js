@@ -5,7 +5,6 @@
 		templateUrl: 'src/templates/mailList.html',
 		bindings: {
 			mails: '<',
-			removeMail: '&'
 		},
 		controller: MailListComponentController
 	});
@@ -14,8 +13,8 @@
 
 		this.sortType = "";
 		this.removeMail = function(mail) {
-			MailBoxService.removeMail(mail)
-			.then(() => this.mails.splice(this.mails.indexOf(mail), 1));
+			MailBoxService.removeMail(mail._id)
+			.then(() => {this.mails.splice(this.mails.indexOf(mail), 1); });
 		}
 	}
 })();

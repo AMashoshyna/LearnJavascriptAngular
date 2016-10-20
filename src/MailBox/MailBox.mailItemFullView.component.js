@@ -5,7 +5,6 @@
 			templateUrl: 'src/templates/mailItemFullView.html',
 			bindings: {
 				mail: '<',
-				// removeMail: '&'
 			},
 			controller: MailItemFullViewController,
 		})

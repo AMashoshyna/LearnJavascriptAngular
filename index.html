@@ -7,7 +7,13 @@
   <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body ng-app="myApp">
-<wrapper-element></wrapper-element>
+<!-- <pre id="uiRouterInfo">
+      $state = {{$state.current.name}}
+      $stateParams = {{$stateParams}}
+      $state full url = {{ $state.$current.url.source }}    
+</pre> -->
+<!-- <wrapper-element></wrapper-element> -->
+<ui-view></ui-view>
 <!-- Libraries -->
 <script src="https://opensource.keycdn.com/angularjs/1.5.8/angular.min.js"></script>
 <script src="lib/angular-ui-router.min.js"></script>
@@ -18,11 +24,11 @@
 <script src="src/MailBox/MailBox.module.js"></script>
 <script src="src/App/App.module.js"></script>
 
-<!-- Router -->
-<script src="src/router.js"></script>
-
 <!-- myApp artifacts -->
 <script src="src/App/App.module.wrapper.component.js"></script>
+<script src="src/App/App.module.login.component.js"></script>
+<script src="src/App/App.module.access.service.js"></script>
+<script src="src/App/App.module.config.js"></script>
 
 
 <!-- UserData artifacts -->
@@ -69,5 +75,7 @@
 </script>
 </body>
 </html>
+
+
 
 
