@@ -4,6 +4,17 @@
     <div class="panel-heading">
       <div class="panel-title">
         <h4>INBOX</h4>
+        <form>
+        <div class="form-group">
+        <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-search"></i>
+        </div>
+          <input type="text" class="form-control" placeholder="Search... " name="" ng-model="$ctrl.searchQuery">
+        </div>
+          
+        </div>
+        </form>
     </div>
     </div>
     <div class="panel-body">
@@ -22,11 +33,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="row row-clickable" ng-repeat="mail in $ctrl.mails | orderBy: $ctrl.sortType:sortReverse"  href="javascript:;">
+          <tr class="row row-clickable" ng-repeat="mail in $ctrl.mails | orderBy: $ctrl.sortType:sortReverse | filter: $ctrl.searchQuery"  href="javascript:;">
           <td><input type="checkbox" name=""></td>
-            <td><a ui-sref="mails.mailFullView({index:$index, mailId: mail._id, removeMail: $ctrl.removeMail})">{{mail.to}}</a></td>
-            <td><a ui-sref="mails.mailFullView({index:$index, mailId: mail._id, removeMail: $ctrl.removeMail})">{{mail.subject}}</a></td>
-            <td><a ui-sref="mails.mailFullView({index:$index, mailId: mail._id, removeMail: $ctrl.removeMail})">{{mail.date}}</a></td>
+            <td><a ui-sref="mailfullview({index:$index, mailId: mail._id, removeMail: $ctrl.removeMail})">{{mail.to}}</a></td>
+            <td><a ui-sref="mailfullview({index:$index, mailId: mail._id, removeMail: $ctrl.removeMail})">{{mail.subject}}</a></td>
             <td><button class="btn btn-default btn-primary" 
             ng-click="$ctrl.removeMail(mail)">REMOVE</button></td>
           </tr>

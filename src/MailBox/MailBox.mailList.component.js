@@ -12,6 +12,7 @@
 	function MailListComponentController(MailBoxService) {
 
 		this.sortType = "";
+		this.searchQuery = "";
 		this.removeMail = function(mail) {
 			MailBoxService.removeMail(mail._id)
 			.then(() => {this.mails.splice(this.mails.indexOf(mail), 1); });

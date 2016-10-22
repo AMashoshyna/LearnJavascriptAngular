@@ -1,0 +1,7 @@
+<ul ng-repeat="folder in $ctrl.folders">
+	<li>
+	<div>{{folder.title}}</div>
+	<div>{{$ctrl.getItemNumber(folder.title)}}</div>
+		<button>REMOVE</button>
+	</li>
+</ul>

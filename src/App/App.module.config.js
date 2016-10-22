@@ -32,7 +32,7 @@ RouterConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
                 },
                 controller: 'SuccessController as success',
       onEnter: function($state, $timeout) {
-      $timeout(()=>{$state.go('mails.inbox')},3000)
+      $timeout(()=>{$state.go('inbox')},3000)
       
     },
       resolve: {
@@ -46,8 +46,9 @@ RouterConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
         }]
     },
 		})
-		.state('login.failure', {
-			template: ``
+		.state('loginfailure', {
+			template: ``,
+			parent: 'login'
 		})
 		.state('users', {
 			url: '/users',

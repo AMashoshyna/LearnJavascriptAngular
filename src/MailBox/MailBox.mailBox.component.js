@@ -17,6 +17,7 @@
 	  var $ctrl = this;
 	  MailBoxService.mailBoxCreation();
 
+
 		$ctrl.addMail = function(mail) {
 
             MailBoxService.newMail(mail);

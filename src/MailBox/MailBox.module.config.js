@@ -8,7 +8,7 @@ RouterConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
 function RouterConfig($stateProvider, $urlRouterProvider) {
 
 	$stateProvider
-	.state('mails.inbox', {
+	.state('inbox', {
 		url: '/inbox',
 		parent:'mails',
 		template: `
@@ -29,15 +29,17 @@ function RouterConfig($stateProvider, $urlRouterProvider) {
         controller: 'MailListController as MailListController'
 	})
 
-	.state('mails.newmail', {
+	.state('newmail', {
 		url: '/newmail',
+		parent:'mails',
 		template: 
 		`
         <new-mail add-mail="$ctrl.addMail(mail)"></new-mail>`
 	})
 
-	.state('mails.mailFullView', {
+	.state('mailfullview', {
 		url: '/mailfullview/:mailId' ,
+		parent:'mails',
 		template: `<mail-item-full-view  mail="mailCtrl.mail"
 		removeMail="mailCtrl.removeMail({mailId: mailCtrl.mailId})"></mail-item-full-view`,
 		params: {
@@ -54,9 +56,20 @@ function RouterConfig($stateProvider, $urlRouterProvider) {
    },
    controller: 'MailItemController as mailCtrl'
 	})
-	.state('mails.sent', {
+	.state('sent', {
 		template: '<div class="panel panel-info"><h4>Your mail has been sent.</h4></div>',
-		url: '/sent'
+		url: '/sent',
+		parent:'mails',
+	})
+	.state('folders', {
+		url:  '/folders',
+		parent:'mails',
+		template: '<mail-folders></mail-folders>',
+		resolve: {
+			folders: ['MailBoxService', function(MailBoxService) {
+
+			}]
+		}
 	})
 }
 })();

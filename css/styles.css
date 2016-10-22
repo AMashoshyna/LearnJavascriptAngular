@@ -9,6 +9,11 @@
   font-weight: bold
 }
 
+.new-mail {
+  background: red;
+  color: white;
+}
+
 
 ul {
 
@@ -61,6 +66,7 @@ new-user-input > input {
   overflow: hidden;
 */
 }
+.dimmed{ opactiy: 0.5; }
 
 
 

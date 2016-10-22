@@ -2,6 +2,10 @@
 	'use strict';
 	angular.module('MailBox', ['ui.router'])
 
+	.run(function ($state,$rootScope) {
+    $rootScope.$state = $state;
+})
+
 	// route controllers
 	.controller('MailListController', MailListController)
 	.controller('MailItemController', MailItemController);
