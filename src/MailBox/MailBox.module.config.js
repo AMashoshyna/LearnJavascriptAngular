@@ -64,12 +64,14 @@ function RouterConfig($stateProvider, $urlRouterProvider) {
 	.state('folders', {
 		url:  '/folders',
 		parent:'mails',
-		template: '<mail-folders></mail-folders>',
+		template: '<mail-folders folders = "foldersCtrl.folders"></mail-folders>',
 		resolve: {
 			folders: ['MailBoxService', function(MailBoxService) {
+				return MailBoxService.getFolders()
 
 			}]
-		}
+		},
+		controller: 'MailFoldersController as foldersCtrl'
 	})
 }
 })();

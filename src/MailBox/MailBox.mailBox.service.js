@@ -22,32 +22,53 @@
    };
 
    this.makeNewMailBox = function(mailboxname) {
-    $http.get('//test-api.javascript.ru/v1/amashoshyna/mailboxes')
-    .then((response) => {response.data})
-    .then((data) => {
-      if(this.checkIfMailBoxExists(mailboxname) ) {
-        alert("Folder " + mailboxname + " already exists in your mailbox")
 
-      } else {
+    // this.response;
+    // $http.get('//test-api.javascript.ru/v1/amashoshyna/mailboxes')
+    // .then((response) => {return response.data})
+    // .then((data) => {
+    //   if(this.checkIfMailBoxExists(data, mailboxname) === true) {
+    //     alert("Folder " + mailboxname + " already exists in your mailbox");
+
+
+    //   } else {
 
     return $http.post('//test-api.javascript.ru/v1/amashoshyna/mailboxes', {"title": mailboxname})
-    .then((response) => response.data);
+    .then((response) => {return response.data});
 
-      }
 
-    })
 
-  }
-  this.checkIfMailBoxExists = function(list, mailboxname) {
-    for(var i = 0; i < list.length; i++) {
-      var mailbox = list[i];
-      if (mailbox.title !== mailbox) {
+//       }
+
+//     })
+// debugger;
+// return this.response 
+  };
+
+  this.getFolders = function() {
+  return $http.get('//test-api.javascript.ru/v1/amashoshyna/mailboxes')
+  .then((response) => {return response.data});
+  };
+  this.removeFolder = function(folderId) {
+  return $http.delete('//test-api.javascript.ru/v1/amashoshyna/mailboxes/'+ folderId)
+  .then((response) => response.data);
+
+  };
+
+  this.checkIfMailBoxExists = function(mailboxname) {
+    this.getFolders().then((folders) =>{
+      debugger;
+          for(var i = 0; i < folders.length; i++) {
+      var mailbox = folders[i];
+      if (mailbox.title !== mailboxname) {
        continue;
      } else {
       return true;
     } 
   };
+    })
   return false;
+
 }
 
 this.getMailBox = function() {    
@@ -71,7 +92,6 @@ this.newMail = function(newMail) {
 };
 
 this.removeMail = function(mailId) {
-  console.log(mailId);
   return $http.delete('//test-api.javascript.ru/v1/amashoshyna/letters/'+ mailId)
   .then((response) => response.data);
 }

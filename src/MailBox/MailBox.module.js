@@ -8,7 +8,8 @@
 
 	// route controllers
 	.controller('MailListController', MailListController)
-	.controller('MailItemController', MailItemController);
+	.controller('MailItemController', MailItemController)
+	.controller('MailFoldersController', MailFoldersController)
 
 
 	MailListController.$inject = ['mails']
@@ -19,5 +20,10 @@
 	MailItemController.$inject = ['mail'];
 	function MailItemController(mail) {
 		this.mail = mail;
+	};
+
+	MailFoldersController.$inject =['folders'];
+	function MailFoldersController(folders) {
+		this.folders = folders;
 	}
 })();

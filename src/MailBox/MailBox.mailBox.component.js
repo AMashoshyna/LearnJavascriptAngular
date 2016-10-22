@@ -5,8 +5,13 @@
 	  template: 
 	  `
 	     <div class="row">
+	     <div class="categories col-sm-2">
 	     <mail-box-menu></mail-box-menu>
+	     </div>
+	     <div class="categories col-sm-10">
+
           <ui-view></ui-view>
+          </div>
        </div>
       `,
 	  controller: MailBoxController,
