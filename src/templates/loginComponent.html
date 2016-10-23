@@ -1,7 +1,7 @@
 <div class="loginmodal-container">  
 <form class="form-signin">
     <h2 class="form-signin-heading">Please sign in</h2>
-<div class="alert alert-danger">      
+<div class="alert alert-success">      
 <table>
     <tr>
       <td>Test user: </td>
@@ -13,6 +13,7 @@
     </tr>
   </table>
   </div>
+  <div class="alert alert-danger" ng-if="$ctrl.showLoginResponse">{{$ctrl.loginResponse}}</div>
     <label for="inputName" class="sr-only">User name</label>
     <input type="name" id="inputName" class="form-control" 
     placeholder="User name" required="" autofocus=""
@@ -31,9 +32,7 @@
       </label>
     </div>
     <button class="btn btn-lg btn-primary btn-block" 
-    ui-sref="success({email: $ctrl.email, password: $ctrl.password})">Sign in</button>
-    <button class="btn btn-lg btn-primary btn-block" 
-    ng-click="$ctrl.checkCredentials()">Sign in</button>
+    ng-click="$ctrl.checkCredentials({email: $ctrl.email, password: $ctrl.password})">Sign in</button>
 
   </form>
   </div>

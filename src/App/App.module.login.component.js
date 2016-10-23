@@ -8,7 +8,9 @@
 			email: '<',
 			password: '<',
 			checkCredentials: '&',
-			showSpinner: '<'
+			showSpinner: '<',
+			loginResponse: '<',
+			showLoginResponse: '<'
 		} 
 	})
 

@@ -14,7 +14,7 @@ function AccessControl($q) {
     }
   this.checkUser = function (email, password) {  
       var deferred = $q.defer();
-      if((email===this.testAccount.email || username === this.testAccount.username)
+      if((email===this.testAccount.email)
       & password === this.testAccount.password) {
         this.currentUser.username = this.testAccount.username;
         deferred.resolve("login successfull");

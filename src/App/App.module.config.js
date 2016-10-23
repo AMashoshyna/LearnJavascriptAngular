@@ -17,7 +17,9 @@ RouterConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
 			url: '/login',
 			// parent: 'start',
 			template: `<login username = "ctrl.username" email = "ctrl.email" 
-			password = "ctrl.password" show-spinner = "ctrl.showSpinner" check-credentials = "ctrl.checkCredentials(email, password)"></login>`,
+			password = "ctrl.password" show-spinner = "ctrl.showSpinner" 
+			check-credentials = "ctrl.checkCredentials(email, password)"
+			login-response = "ctrl.loginResponse" show-login-response ="ctrl.showLoginResponse"></login>`,
 			controller: 'LoginController as ctrl'
 
 		})
@@ -37,13 +39,8 @@ RouterConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
       
     },
       resolve: {
-        access: ['AccessControl', '$stateParams', function(AccessControl, $stateParams) {
-          return AccessControl.checkUser($stateParams.email, $stateParams.password)
-          .then(response=> response.data);
-        }],
         username: ['AccessControl', function(AccessControl) {
         	return AccessControl.getCurrentUser().username
-
         }]
     },
 		})
