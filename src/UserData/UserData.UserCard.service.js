@@ -20,8 +20,8 @@ function UserCardService($http) {
 	};
 
 	this.getRandomUser = function() {
-		return $http.get('https://randomuser.me/api/')
-		.then((response) => response.data);
+		// return $http.get('https://randomuser.me/api/')
+		// .then((response) => response.data);
 	}
 
 	this.addUser = (newUser) => {

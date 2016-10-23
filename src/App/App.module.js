@@ -9,7 +9,8 @@
 }
 ])
 	.controller('LoginController', LoginController)
-	.controller('SuccessController', SuccessController);
+	.controller('SuccessController', SuccessController)
+  .controller('UserController', UserController)
 
 LoginController.$inject = ['AccessControl', '$stateParams','$state'];
 	function LoginController(AccessControl, $stateParams, $state) {
@@ -34,6 +35,10 @@ LoginController.$inject = ['AccessControl', '$stateParams','$state'];
 
 function SuccessController(username) {
 	this.username = username;
+}
+
+function UserController() {
+
 }
 })();
 
