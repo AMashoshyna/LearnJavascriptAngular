@@ -10,6 +10,8 @@
 	.controller('MailListController', MailListController)
 	.controller('MailItemController', MailItemController)
 	.controller('MailFoldersController', MailFoldersController)
+	.controller('SentItemsController', SentItemsController)
+	.controller('DraftsItemsController', DraftsItemsController)
 
 
 	MailListController.$inject = ['mails']
@@ -25,5 +27,16 @@
 	MailFoldersController.$inject =['folders'];
 	function MailFoldersController(folders) {
 		this.folders = folders;
+	};
+
+	SentItemsController.$inject = ['mails'];
+	function SentItemsController(mails) {
+		this.mails = mails;
+	};
+
+	DraftsItemsController.$inject = ['mails'];
+	function DraftsItemsController(mails) {
+		this.mails = mails;
 	}
+
 })();

@@ -56,10 +56,40 @@ function RouterConfig($stateProvider, $urlRouterProvider) {
    },
    controller: 'MailItemController as mailCtrl'
 	})
-	.state('sent', {
+	.state('sentreport', {
 		template: '<div class="panel panel-info"><h4>Your mail has been sent.</h4></div>',
-		url: '/sent',
+		url: '/mailsent',
 		parent:'mails',
+		onEnter: function($state, $timeout) {
+      $timeout(()=>{$state.go('inbox')},2000)
+      
+    },
+	})
+	.state('drafts', {
+		url: '/drafts',
+		parent: 'mails',
+		template: '<draft-items mails = draftCtrl.mails></drafts-items>',
+		resolve: {
+        	mails: ['MailBoxService', function(MailBoxService) {
+        		return MailBoxService.getAllMails()
+        		.then((response) => {return response.filter((item) => {return item.mailbox === '580c8cc99de15a250410dbbf'})});
+        	}]
+        },
+        controller: 'DraftsItemsController as draftCtrl'
+
+	})
+	.state('sent', {
+		url: '/sent',
+		parent: 'mails',
+		template: '<sent-items mails = sentCtrl.mails></sent-items>',
+		resolve: {
+        	mails: ['MailBoxService', function(MailBoxService) {
+        		return MailBoxService.getAllMails()
+        		.then((response) => {return response.filter((item) => {return item.mailbox === '580c8cc99de15a250410dbbf'})});
+        	}]
+        },
+        controller: 'SentItemsController as sentCtrl'
+
 	})
 	.state('folders', {
 		url:  '/folders',

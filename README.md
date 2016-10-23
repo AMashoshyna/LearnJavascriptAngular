@@ -11,5 +11,6 @@ start/mails/inbox
 start/mails/mailfullview
 start/mails/newmail
 start/mails/sent
+start/mails/drafts
 start/mails/folders
 

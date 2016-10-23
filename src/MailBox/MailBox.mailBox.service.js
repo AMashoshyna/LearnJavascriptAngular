@@ -22,53 +22,40 @@
    };
 
    this.makeNewMailBox = function(mailboxname) {
+      return $http.post('//test-api.javascript.ru/v1/amashoshyna/mailboxes', {"title": mailboxname})
+      .then((response) => {return response.data});
+};
 
-    // this.response;
-    // $http.get('//test-api.javascript.ru/v1/amashoshyna/mailboxes')
-    // .then((response) => {return response.data})
-    // .then((data) => {
-    //   if(this.checkIfMailBoxExists(data, mailboxname) === true) {
-    //     alert("Folder " + mailboxname + " already exists in your mailbox");
-
-
-    //   } else {
-
-    return $http.post('//test-api.javascript.ru/v1/amashoshyna/mailboxes', {"title": mailboxname})
-    .then((response) => {return response.data});
-
-
-
-//       }
-
-//     })
-// debugger;
-// return this.response 
-  };
-
-  this.getFolders = function() {
+this.getFolders = function() {
   return $http.get('//test-api.javascript.ru/v1/amashoshyna/mailboxes')
   .then((response) => {return response.data});
-  };
-  this.removeFolder = function(folderId) {
+};
+this.removeFolder = function(folderId) {
   return $http.delete('//test-api.javascript.ru/v1/amashoshyna/mailboxes/'+ folderId)
   .then((response) => response.data);
+};
 
-  };
+this.checkIfMailBoxExists = function(mailboxname) {
+  return 
+  this.getFolders().then((folders) =>{
+      var result;
 
-  this.checkIfMailBoxExists = function(mailboxname) {
-    this.getFolders().then((folders) =>{
-      debugger;
-          for(var i = 0; i < folders.length; i++) {
+    for(var i = 0; i < folders.length; i++) {
       var mailbox = folders[i];
       if (mailbox.title !== mailboxname) {
        continue;
      } else {
-      return true;
+      result = true
+      console.log('result' + result);
+      return;
     } 
+    result = false;
   };
-    })
-  return false;
-
+  this.check = result;
+  console.log('result' + result);
+  return result;
+})
+// return this.check;
 }
 
 this.getMailBox = function() {    

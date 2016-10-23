@@ -20,7 +20,7 @@
 			to: 'test@test.com',
 		};
 
-		ctrl.addMailWrapper = function(newMail) {
+		ctrl.addMailWrapper = function() {
 			ctrl.addMail({mail: this.newMail});
 			this.newMail = {
 			subject: '',
@@ -28,6 +28,12 @@
 			to: '',
 		};
 
+		};
+
+		ctrl.saveDraft = function() {
+			var draft = JSON.parse(JSON.stringify(this.newMail));
+			draft.mailbox = '580c8cc99de15a250410dbbf';
+			ctrl.addMail({mail: draft});
 		}
 	}
 })();

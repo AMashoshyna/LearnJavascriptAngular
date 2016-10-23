@@ -1,0 +1,48 @@
+      <div id="detail-view" class="detail-view col-sm-10">
+<div class="container-fluid">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="panel-title">
+        <h4>DRAFT MAILS</h4>
+        <form>
+        <div class="form-group">
+        <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-search"></i>
+        </div>
+          <input type="text" class="form-control" placeholder="Search... " name="" ng-model="$ctrl.searchQuery">
+        </div>
+          
+        </div>
+        </form>
+    </div>
+    </div>
+    <div class="panel-body">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr class="row">
+            <th><a></a></th>
+            <th><a ng-click="$ctrl.sortType = 'to'">From
+            <span ng-show="$ctrl.sortType == 'to'" class="fa fa-caret-down">
+            </span></a></th>
+            <th><a ng-click="$ctrl.sortType = 'subject'">Subject
+            <span ng-show="$ctrl.sortType == 'subject'" class="fa fa-caret-down">
+            </span></a></th></a></th>
+            <th><a></a></th>
+            <th><a></a></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="row row-clickable" ng-repeat="mail in $ctrl.mails | orderBy: $ctrl.sortType:sortReverse | filter: $ctrl.searchQuery"  href="javascript:;">
+          <td><input type="checkbox" name=""></td>
+            <td><a ui-sref="mailfullview({index:$index, mailId: mail._id, removeMail: $ctrl.removeMail})">{{mail.to}}</a></td>
+            <td><a ui-sref="mailfullview({index:$index, mailId: mail._id, removeMail: $ctrl.removeMail})">{{mail.subject}}</a></td>
+            <td><button class="btn btn-default btn-primary" 
+            ng-click="$ctrl.removeMail(mail)">REMOVE</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
