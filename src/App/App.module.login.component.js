@@ -6,7 +6,9 @@
 		bindings: {
 			username: '<',
 			email: '<',
-			password: '<'
+			password: '<',
+			checkCredentials: '&',
+			showSpinner: '<'
 		} 
 	})
 

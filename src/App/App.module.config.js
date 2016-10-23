@@ -16,7 +16,8 @@ RouterConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
 		.state('login', {
 			url: '/login',
 			// parent: 'start',
-			template: `<login username = "ctrl.username" email = "ctrl.email" password = "ctrl.password"></login>`,
+			template: `<login username = "ctrl.username" email = "ctrl.email" 
+			password = "ctrl.password" show-spinner = "ctrl.showSpinner" check-credentials = "ctrl.checkCredentials(email, password)"></login>`,
 			controller: 'LoginController as ctrl'
 
 		})

@@ -15,6 +15,10 @@
 		this.username = "John Doe";
   this.email = "test@mail.com";
   this.password = "test";
+
+  this.checkCredentials = function() {
+  	this.showSpinner = true;
+  }
   
 };
 

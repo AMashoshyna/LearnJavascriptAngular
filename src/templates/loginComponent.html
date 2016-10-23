@@ -32,5 +32,9 @@
     </div>
     <button class="btn btn-lg btn-primary btn-block" 
     ui-sref="success({email: $ctrl.email, password: $ctrl.password})">Sign in</button>
+    <button class="btn btn-lg btn-primary btn-block" 
+    ng-click="$ctrl.checkCredentials()">Sign in</button>
+
   </form>
   </div>
+  <loading-spinner ng-if="$ctrl.showSpinner"></loading-spinner>
