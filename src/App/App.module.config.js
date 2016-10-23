@@ -51,7 +51,13 @@ RouterConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
 		.state('users', {
 			url: '/users',
 			parent:'start',
-			template: ` <user-list></user-list> `
+			template: ` <user-list random-user="userCtrl.randomUser"></user-list> `,
+			resolve: {
+				randomUser: ['UserCardService', function(UserCardService) {
+					return UserCardService.getRandomUser().then((response) => {console.log(response);})
+				}]
+			},
+			controller: 'UserController as userCtrl'
 		})
 
 		.state('mails', {

@@ -13,9 +13,13 @@
 
 	function newUserInputController(UserCardService) {
 	var ctrl = this;
+	
 	ctrl.newUser = {
 		email:'john@mail.com',
 		fullName: 'John Doe',
+		birthdate: new Date('2000', '01', '01'),
+		address: '3 Center St.Auburn, NY 13021'
+
 	};
 
 	ctrl.addUserWrapper = function() {
@@ -23,6 +27,8 @@
   	ctrl.newUser = {
 		email:'',
 		fullName: '',
+		birthdate: '',
+		address: ''
 	};    
 
 

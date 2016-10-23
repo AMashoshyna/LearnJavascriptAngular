@@ -28,7 +28,9 @@ function FoldersController(MailBoxService){
 		// 	return;
 		// }
 		MailBoxService.makeNewMailBox(folderName)
-		.then((response) => { this.folders.push(response)});
+		.then((response) => { 
+
+			this.folders.push(response)});
 
 	}
 }

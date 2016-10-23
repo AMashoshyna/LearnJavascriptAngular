@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Карточки пользователей</title>
+  <title>Mailbox in AngularJS</title>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
@@ -12,7 +12,7 @@
       $stateParams = {{$stateParams}}
       $state full url = {{ $state.$current.url.source }}    
 </pre> -->
-<!-- <wrapper-element></wrapper-element> -->
+
 <ui-view></ui-view>
 <!-- Libraries -->
 <script src="https://opensource.keycdn.com/angularjs/1.5.8/angular.min.js"></script>
@@ -34,9 +34,14 @@
 
 <!-- UserData artifacts -->
 <script src="src/UserData/UserData.newUserInput.component.js"></script>
+<script src="src/UserData/UserData.newUserForm.component.js"></script>
 <script src="src/UserData/UserData.userCard.component.js"></script>
+<script src="src/UserData/UserData.userCardFull.component.js"></script>
 <script src="src/UserData/UserData.userList.component.js"></script>
+<script src="src/UserData/UserData.Profile.component.js"></script>
+<script src="src/UserData/UserData.userListPreview.component.js"></script>
 <script src="src/UserData/UserData.UserCard.service.js"></script>
+<script src="src/UserData/UserData.module.config.js"></script>
 
 <!-- MailBox artifacts -->
 <script src="src/MailBox/MailBox.mailBox.component.js"></script>

@@ -1,6 +1,6 @@
 <div class="col-md-6"><div class="panel panel-info">
   <div class="panel-heading">
-    <h3 class="panel-title" class=" col-md-9 col-lg-9 ">{{$ctrl.userData[$ctrl.index].fullName}}</h3>
+    <a ui-sref="userdetail({userId: $ctrl.userData[$ctrl.index]._id})"><h3 class="panel-title" class=" col-md-9 col-lg-9 " ui-sref="userdetail()">{{$ctrl.userData[$ctrl.index].fullName}}</h3></a>
   </div>
   <div class="panel-body">
     <div class="row">

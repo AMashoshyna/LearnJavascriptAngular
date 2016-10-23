@@ -81,6 +81,12 @@ this.newMail = function(newMail) {
 this.removeMail = function(mailId) {
   return $http.delete('//test-api.javascript.ru/v1/amashoshyna/letters/'+ mailId)
   .then((response) => response.data);
+};
+
+this.editMail = function(mailId, property, value) {
+  return $http.delete('//test-api.javascript.ru/v1/amashoshyna/letters/'+ mailId, {property: value} )
+  .then((response) => response.data);
+
 }
 }
 })();

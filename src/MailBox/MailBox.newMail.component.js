@@ -34,6 +34,8 @@
 			var draft = JSON.parse(JSON.stringify(this.newMail));
 			draft.mailbox = '580c8cc99de15a250410dbbf';
 			ctrl.addMail({mail: draft});
-		}
+		};
+
+		
 	}
 })();

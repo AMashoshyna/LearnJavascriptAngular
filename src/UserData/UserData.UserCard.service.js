@@ -14,6 +14,16 @@ function UserCardService($http) {
 		.then((response) => response.data);
 	};
 
+		this.getUser = function(userId) {
+		return $http.get('//test-api.javascript.ru/v1/amashoshyna/users/'+ userId)
+		.then((response) => response.data);
+	};
+
+	this.getRandomUser = function() {
+		return $http.get('https://randomuser.me/api/')
+		.then((response) => response.data);
+	}
+
 	this.addUser = (newUser) => {
 		return $http.post('//test-api.javascript.ru/v1/amashoshyna/users', newUser)
 		.then((response) => response.data);

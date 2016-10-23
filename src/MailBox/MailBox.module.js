@@ -26,6 +26,17 @@
 
 	MailFoldersController.$inject =['folders'];
 	function MailFoldersController(folders) {
+		// folders.forEach(function(folder) {
+		// 	if(folder.title === 'inbox'
+		// 		|| folder.title === 'sent' 
+		// 		|| folder.title === 'drafts' 
+		// 		|| folder.title ==='spam') {  
+		// 		folder.removeable = false;
+
+		// 	} else {
+		// 		folder.removeable = true;
+		// 	}
+		// })
 		this.folders = folders;
 	};
 
