@@ -2,7 +2,7 @@
 	'use strict';
 	angular.module('MailBox')
 	.component('mailFolders', {
-	  templateUrl: 'src/templates/mailFolders.html',
+	  templateUrl: 'src/MailBox/mailfolders/mailFolders.html',
 	  bindings: {
 	  	folders: '<'
 	  },

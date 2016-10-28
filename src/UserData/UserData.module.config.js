@@ -37,6 +37,14 @@ function RouterConfig($stateProvider, $urlRouterProvider) {
 	 	controller: 'UserDetailController as userdetailCtrl'
 
 	 })
+	 .state('editprofile', {
+	 	url: '/editprofile:userId',
+	 	parent:'start',
+	 	template: '<profile-edit></profile-edit>',
+	 	resolve: {
+	 		
+	 	}
+	 })
 
 	 .state('newuser', {
 	 	url: '/newuser',

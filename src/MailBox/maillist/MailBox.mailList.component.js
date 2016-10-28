@@ -2,7 +2,7 @@
 	'use strict';
 	angular.module('MailBox')
 	.component('mailList', {
-		templateUrl: 'src/templates/mailList.html',
+		templateUrl: 'src/MailBox/maillist/mailList.html',
 		bindings: {
 			mails: '<',
 		},

@@ -34,14 +34,13 @@
 			parent:'mails',
 			template: 
 			`
-			<new-mail add-mail="$ctrl.addMail(mail)"></new-mail>`
+			<new-mail add-mail="$ctrl.addMail(mail)" save-to-drafts="$ctrl.saveToDrafts(mail)"></new-mail>`
 		})
 
 		.state('mailfullview', {
 			url: '/mailfullview/:mailId' ,
 			parent:'mails',
-			template: `<mail-item-full-view  mail="mailCtrl.mail"
-			removeMail="mailCtrl.removeMail({mailId: mailCtrl.mailId})"></mail-item-full-view`,
+			template: `<mail-item-full-view  mail="mailCtrl.mail"></mail-item-full-view`,
 			params: {
 				index: null,
 				mailId: null,
@@ -68,7 +67,7 @@
 		.state('drafts', {
 			url: '/drafts',
 			parent: 'mails',
-			template: '<draft-items mails = draftCtrl.mails></drafts-items>',
+			template: '<draft-items removeMail = "$ctrl.removeMail(mail)" mails = draftCtrl.mails></drafts-items>',
 			resolve: {
 				mails: ['MailBoxService', function(MailBoxService) {
 					return MailBoxService.getAllMails()

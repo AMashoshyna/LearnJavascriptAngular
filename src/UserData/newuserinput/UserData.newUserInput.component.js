@@ -4,7 +4,7 @@
 	angular.module('UserData')
 
 	.component('newUserInput', {
-	templateUrl: 'src/templates/newUserInput.html',
+	templateUrl: 'src/UserData/newuserinput/newUserInput.html',
 	bindings: {
 		addUser: '&'
 	},

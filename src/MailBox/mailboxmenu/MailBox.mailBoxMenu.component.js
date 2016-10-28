@@ -4,7 +4,7 @@
 	'use strict';
 	angular.module('MailBox')
 		.component('mailBoxMenu', {
-	  templateUrl: 'src/templates/mailBoxMenu.html',
+	  templateUrl: 'src/MailBox/mailboxmenu/mailBoxMenu.html',
 	  controller: MailBoxMenuController
 	})
 

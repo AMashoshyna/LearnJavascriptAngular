@@ -2,7 +2,7 @@
 	'use strict';
 angular.module('UserData')
 .component('newUserForm', {
-	templateUrl: 'src/templates/newUserForm.html',
+	templateUrl: 'src/UserData/newuserform/newUserForm.html',
 	controller: UserFormController
 })
 

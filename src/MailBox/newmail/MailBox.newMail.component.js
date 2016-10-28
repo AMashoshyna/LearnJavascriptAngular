@@ -2,10 +2,11 @@
 	'use strict';
 	angular.module('MailBox')
 	.component('newMail', {
-		templateUrl: 'src/templates/newMail.html',
+		templateUrl: 'src/MailBox/newmail/newMail.html',
 		controller: NewMailController,
 		bindings: {
-			addMail: '&'
+			addMail: '&',
+			saveToDrafts:'&'
 		}
 	});
 
@@ -32,8 +33,8 @@
 
 		ctrl.saveDraft = function() {
 			var draft = JSON.parse(JSON.stringify(this.newMail));
-			draft.mailbox = '580c8cc99de15a250410dbbf';
-			ctrl.addMail({mail: draft});
+			// draft.mailbox = '580c8cc99de15a250410dbbf';
+			ctrl.saveToDrafts({mail: draft});
 		};
 
 		

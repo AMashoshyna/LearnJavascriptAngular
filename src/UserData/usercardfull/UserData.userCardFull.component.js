@@ -4,7 +4,7 @@
 	angular.module('UserData')
 
 	.component('userCardFull',  {
-		templateUrl: 'src/templates/userCardFull.html',
+		templateUrl: 'src/UserData/usercardfull/userCardFull.html',
 		bindings: {
 			user: '<'
 		}

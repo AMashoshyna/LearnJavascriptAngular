@@ -2,7 +2,7 @@
 	'use strict';
 angular.module('UserData')
 .component('userListPreview', {
-	templateUrl: 'src/templates/userListPreview.html',
+	templateUrl: 'src/UserData/userlistpreview/userListPreview.html',
 	bindings: {
 		users: '<'
 	}

@@ -14,7 +14,7 @@
 
 LoginController.$inject = ['AccessControl', '$stateParams','$state'];
 	function LoginController(AccessControl, $stateParams, $state) {
-		this.username = "John Doe";
+	this.username = "John Doe";
   this.email = "test@mail.com";
   this.password = "test";
   this.loginResponse ='';

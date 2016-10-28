@@ -9,7 +9,7 @@
 		index:'<',
 		removeUser: '&'
 	},
-      templateUrl: 'src/templates/userCardTemplate.html',
+      templateUrl: 'src/UserData/usercard/userCardTemplate.html',
       controller: UserCardController 
   });
 

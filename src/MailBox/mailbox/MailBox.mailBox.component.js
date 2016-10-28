@@ -26,13 +26,19 @@
 		$ctrl.addMail = function(mail) {
 
             MailBoxService.newMail(mail);
-		}
+		};
+
+		$ctrl.saveToDrafts = function(mail) {
+			MailBoxService.saveToDrafts(mail);
+		};
+		
 	    
 	    $ctrl.removeMail = function(mailId) {
 	    	console.log('mail removal started')
 	    	MailBoxService.removeMail(mailIid);
 	    }
 	}
+	
 	
 })();
 

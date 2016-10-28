@@ -1,8 +1,8 @@
 (function() {
 	'use strict';
 	angular.module('MailBox')
-	.component('draftItems', {
-		templateUrl: 'src/templates/draftItems.html',
+	.component('sentItems', {
+		templateUrl: 'src/MailBox/sentitems/sentItems.html',
 		bindings: {
 			mails: '<',
 		},

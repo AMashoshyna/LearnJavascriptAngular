@@ -2,7 +2,7 @@
 (function() {
 		angular.module('myApp')
 	.component('login', {
-		templateUrl: 'src/templates/loginComponent.html',
+		templateUrl: 'src/App/login/loginComponent.html',
 		bindings: {
 			username: '<',
 			email: '<',

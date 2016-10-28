@@ -78,6 +78,12 @@ this.newMail = function(newMail) {
   .then((response) => response.data);
 };
 
+this.saveToDrafts = function(newMail) {
+  newMail.mailbox = '580c8cc99de15a250410dbbf';
+  return $http.post('//test-api.javascript.ru/v1/amashoshyna/letters', newMail)
+  .then((response) => response.data);
+};
+
 this.removeMail = function(mailId) {
   return $http.delete('//test-api.javascript.ru/v1/amashoshyna/letters/'+ mailId)
   .then((response) => response.data);
