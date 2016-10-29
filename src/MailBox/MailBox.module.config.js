@@ -19,7 +19,6 @@
 			params: {
 				mailId: null,
         	// removeMail: null,
-
         },
         resolve: {
         	mails: ['MailBoxService', function(MailBoxService) {

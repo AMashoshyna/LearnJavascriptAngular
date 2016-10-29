@@ -11,7 +11,7 @@
 
 	function MailListComponentController(MailBoxService) {
 
-		this.sortType = "";
+		// this.sortType = "";
 		this.searchQuery = "";
 		this.removeMail = function(mail) {
 			MailBoxService.removeMail(mail._id)

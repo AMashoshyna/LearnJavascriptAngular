@@ -63,7 +63,13 @@ RouterConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
 		.state('mails', {
 			abstract: true,
 			parent:'start',
-			template: `<mailbox></mailbox>`
+			template: `<mailbox mails="mailsCtrl"></mailbox>`,
+			resolve: {
+        	mails: ['MailBoxService', function(MailBoxService) {
+        		return MailBoxService.getAllMails();
+        	}]
+        },
+        controller: 'MailsController as mailsCtrl'
 		})
 
 	}

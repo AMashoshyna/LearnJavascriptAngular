@@ -34,6 +34,11 @@ function UserCardService($http) {
 		.then((response) => response.data);
 	};
 
+	this.editUserData = function(user, userData) {
+		return $http.patch('//test-api.javascript.ru/v1/amashoshyna/users' + user._id, userData)
+		.then((response) => response.data);
+	}
+
 
 };
 })();

@@ -63,9 +63,13 @@ this.getMailBox = function() {
 }
 
 /* ----MAILS MANAGEMENT----*/
+this.mails;
 this.getAllMails = function() {
   return $http.get('//test-api.javascript.ru/v1/amashoshyna/letters')
-  .then((response) => response.data);
+  .then((response) => {
+    this.mails = response.data;
+    return response.data;s
+  });
 };
 
 this.getMail = function(mailId) {

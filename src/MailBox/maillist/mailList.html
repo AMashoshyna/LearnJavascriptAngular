@@ -3,7 +3,7 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <div class="panel-title">
-        <h4>INBOX</h4>
+        <h4>Incoming mails</h4>
         <form>
         <div class="form-group">
         <div class="input-group">
@@ -22,14 +22,14 @@
         <thead>
           <tr class="row">
             <th><a></a></th>
-            <th><a ng-click="$ctrl.sortType = 'to'">From
+            <th><a class="menu-sorter" ng-click="$ctrl.sortType = 'to'">From
             <span ng-show="$ctrl.sortType == 'to'" class="fa fa-caret-down">
             </span></a></th>
-            <th><a ng-click="$ctrl.sortType = 'subject'">Subject
+            <th><a class="menu-sorter" ng-click="$ctrl.sortType = 'subject'">Subject
             <span ng-show="$ctrl.sortType == 'subject'" class="fa fa-caret-down">
             </span></a></th></a></th>
             <th><a></a></th>
-            <th><a></a></th>
+            <!-- <th><a></a></th> -->
           </tr>
         </thead>
         <tbody>
@@ -37,8 +37,10 @@
           <td><input type="checkbox" name=""></td>
             <td><a ui-sref="mailfullview({index:$index, mailId: mail._id, removeMail: $ctrl.removeMail})">{{mail.to}}</a></td>
             <td><a ui-sref="mailfullview({index:$index, mailId: mail._id, removeMail: $ctrl.removeMail})">{{mail.subject}}</a></td>
-            <td><button class="btn btn-default btn-primary" 
-            ng-click="$ctrl.removeMail(mail)">REMOVE</button></td>
+            <td><i class="fa fa-trash-o" aria-hidden="true" ng-click="$ctrl.removeMail(mail)"></i>
+            <!-- <button class="btn btn-sm btn-default btn-primary"  -->
+            <!-- ng-click="$ctrl.removeMail(mail)">remove</button> -->
+            </td>
           </tr>
         </tbody>
       </table>

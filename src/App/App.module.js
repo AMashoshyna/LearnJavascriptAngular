@@ -11,6 +11,7 @@
 	.controller('LoginController', LoginController)
 	.controller('SuccessController', SuccessController)
   .controller('UserController', UserController)
+  .controller('MailsController', MailsController)
 
 LoginController.$inject = ['AccessControl', '$stateParams','$state'];
 	function LoginController(AccessControl, $stateParams, $state) {
@@ -38,7 +39,11 @@ function SuccessController(username) {
 }
 
 function UserController() {
+};
 
+MailsController.$inject = ['mails'];
+function MailsController(mails) {
+  this.mails = mails;
 }
 })();
 

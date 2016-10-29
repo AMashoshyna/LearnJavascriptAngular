@@ -2,7 +2,7 @@
 		'use strict';
 		angular.module('MailBox')
 		.component('mailItemFullView', {
-			templateUrl: 'src/templates/mailItemFullView.html',
+			templateUrl: 'src/MailBox/mailitemfullview/mailItemFullView.html',
 			bindings: {
 				mail: '<',
 			},

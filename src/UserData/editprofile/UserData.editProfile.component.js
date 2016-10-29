@@ -3,6 +3,9 @@
 angular.module('UserData')
 .component('editProfile', {
 	templateUrl: 'src/UserData/editprofile/editProfile.html',
+	bindings: {
+		user: '<'
+	},
 	controller: EditProfileController
 })
 

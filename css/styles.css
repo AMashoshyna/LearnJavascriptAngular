@@ -224,6 +224,34 @@ new-user-input > input {
 {margin-top:20px;
 }
 
+.menu-sorter {
+  cursor: pointer
+}
+ /* unvisited link */
+a:link {
+     text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+     text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+     text-decoration: none;
+}
+
+/* selected link */
+a:active {
+     text-decoration: none;
+}
+.mailbox-menu-item {
+  cursor: pointer
+}
+.navbar-left {
+  vertical-align: middle;
+}
 
 
 

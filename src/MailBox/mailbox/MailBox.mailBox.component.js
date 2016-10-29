@@ -6,7 +6,7 @@
 	  `
 	     <div class="row">
 	     <div class="categories col-sm-2">
-	     <mail-box-menu></mail-box-menu>
+	     <mail-box-menu mails="$ctrl.mails"></mail-box-menu>
 	     </div>
 	     <div class="categories col-sm-10">
 
@@ -14,6 +14,9 @@
           </div>
        </div>
       `,
+      bindings: {
+      	mails: '<'
+      },
 	  controller: MailBoxController,
 	  })
 
@@ -33,10 +36,10 @@
 		};
 		
 	    
-	    $ctrl.removeMail = function(mailId) {
-	    	console.log('mail removal started')
-	    	MailBoxService.removeMail(mailIid);
-	    }
+	    // $ctrl.removeMail = function(mailId) {
+	    // 	console.log('mail removal started')
+	    // 	MailBoxService.removeMail(mailIid);
+	    // }
 	}
 	
 	

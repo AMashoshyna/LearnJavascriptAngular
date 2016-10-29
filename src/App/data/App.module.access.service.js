@@ -11,12 +11,16 @@ function AccessControl($q) {
     };
     this.currentUser = {
       username: 'Guest'
-    }
+    };
+    this.auth = false;
   this.checkUser = function (email, password) {  
       var deferred = $q.defer();
       if((email===this.testAccount.email)
       & password === this.testAccount.password) {
         this.currentUser.username = this.testAccount.username;
+      localStorage.user = angular.toJson(this.currentUser);
+      this.auth = true;
+      localStorage.auth = true;
         deferred.resolve("login successfull");
       } else {
 
@@ -26,14 +30,18 @@ function AccessControl($q) {
   };
 
   this.getCurrentUser = function() {
+    if(localStorage.user !== undefined) {
+      this.currentUser = angular.fromJson(localStorage.user);
+    } 
     return this.currentUser;
   };
+
   this.checkLogin = function() {
-    if(this.currentUser.username !== 'Guest') {
-      return true;
+    if(localStorage.auth !== undefined) {
+      this.auth = localStorage.auth;
 
     } 
-    return false;
+    return this.auth;
   }
 };
 

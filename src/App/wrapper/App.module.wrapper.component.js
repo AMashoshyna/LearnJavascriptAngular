@@ -9,12 +9,13 @@
 <div class="container-fluid">
 <div class="navbar-left">   
 <ul class="nav nav-pills">
-          <li  ng-class="{active: $state.includes('users')}"><a ui-sref="users">CONTACTS</a></li>
-          <div>{{$scope.$state}}</div>
-          <li ng-class="{active: $state.includes('mails')}"><a ui-sref="inbox" >MAILBOX</a></li>
+          <li  ng-class="{active: ($ctrl.$state.includes('users')|| $ctrl.$state.includes('userdetail'))}"><a ui-sref="users">CONTACTS</a></li>
+          <li ng-class="{active: $ctrl.$state.includes('mails')}"><a ui-sref="inbox" >MAILBOX</a></li>
    	   </ul> 
    	   </div>
-   	   <p class="navbar-text navbar-right">Signed in as: <b>{{$ctrl.user.username}}</b> <button ui-sref="login" ng-if="!$ctrl.loggedIn">Sign in</button></p>
+   	   <p class="navbar-text navbar-right">Signed in as: <b>{{$ctrl.user.username}}</b> 
+   	   <button ui-sref="login" ng-if="!$ctrl.loggedIn">Sign in</button>
+   	   <button ui-sref="login" ng-if="$ctrl.loggedIn">Sign out</button></p>
    	   </div>  
    	   </div> 
 
@@ -25,10 +26,12 @@
 	
 	});
 
-	AppModuleController.$inject = ['AccessControl'];
-	function AppModuleController(AccessControl, $stateProvider, $urlRouterProvider) {
+	AppModuleController.$inject = ['AccessControl', '$state'];
+	function AppModuleController(AccessControl, $state) {
 		this.user = AccessControl.getCurrentUser();
 		this.loggedIn = AccessControl.checkLogin();
+		this.$state = $state;
+
 		// this.showMailButton = function($state) {
 		// 	if($state.current.parent.name.includes('mail')){
 		// 		console.log($state);
