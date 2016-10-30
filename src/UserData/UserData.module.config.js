@@ -40,13 +40,17 @@ function RouterConfig($stateProvider, $urlRouterProvider) {
 	 .state('editprofile', {
 	 	url: '/editprofile:userId',
 	 	parent:'start',
-	 	template: '<edit-profile></edit-profile>',
+	 	template: '<edit-profile user="editCtrl.user"></edit-profile>',
 	 	params: {
-        user: null,
+        userId: null,
 	 	},
 	 	resolve: {
+	 			user: ['UserCardService', '$stateParams', function(UserCardService, $stateParams) {
+	 			return UserCardService.getUser($stateParams.userId);
+	 		}]
 	 		
-	 	}
+	 	},
+	 	controller: 'EditProfileStateController as editCtrl'
 	 })
 
 	 .state('newuser', {
