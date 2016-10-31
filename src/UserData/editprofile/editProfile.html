@@ -3,39 +3,49 @@
       <div class="col-md-5  toppad pull-right col-md-offset-2">
            <A href="edit.html" >Edit Profile</A>
        <br>
-      </div> -->
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-1 col-lg-offset-1 toppad" >
-          <div class="panel panel-info">
-            <div class="panel-heading">
-              <h3 class="panel-title">Edit user profile</h3>
-            </div>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> </div>
-                <div class=" col-md-9 col-lg-9 "> 
-                <form name="userdata" novalidate class="form-group">
-                <label for="name">Name
-                <input type="text" name="name" ng-model="$ctrl.user.fullName" required></label><br>
-                  <label for="gender">Gender
-                  <input type="radio" name="gender" ng-model="$crtl.user.gender" value="M">Male
-                  <input type="radio" name="gender" ng-model="$crtl.user.gender" value="F">Female</label><br>
-                  <label for="email">Email
-                  <input type="" name="email" ng-model="$ctrl.user.email" required></label>
-                  <label for="address">Address
-                    <textarea type="text" name="address" ng-model="$ctrl.user.address" required></textarea>
-                  </label>
-                  <label for="birthdate">Birth date
-                  <input type="date" name="birthdate" ng-model="$ctrl.user.birthdate"></label> 
-                </form>
-                </div>
-              </div>
-            </div>
-<div class="panel-footer">
-
-    <a ui-sref="editprofile({userId: $ctrl.user._id})" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-success"><i class="glyphicon glyphicon-ok"></i></a>
-    <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
-
-</div>
-          </div>
+     </div> -->
+     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-1 col-lg-offset-1 toppad" >
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Edit user profile</h3>
         </div>
-      <!-- </div> -->
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> </div>
+            <div class=" col-md-9 col-lg-9 "> 
+              <form name="userdata" novalidate class="form-group">
+                <div class="form-group">                
+                  <label for="name">Name</label>
+                  <input type="text" name="name" class="form-control" ng-model="$ctrl.user.fullName" required>
+                </div>
+                <div class="form-group">                  
+                  <label for="gender">Gender</label>
+                  <input type="radio" name="gender" ng-model="$ctrl.user.gender" value="M">Male
+                  <input type="radio" name="gender" ng-model="$ctrl.user.gender" value="F">Female
+                </div>
+                <div class="form-group">                  
+                  <label for="email">Email</label>
+                  <input type="" name="email" class="form-control" ng-model="$ctrl.user.email" required>
+                </div>
+                <div class="form-group">                  
+                  <label for="address">Address</label>
+                  <textarea type="text" name="address" class="form-control" ng-model="$ctrl.user.address" required></textarea>
+                </div>
+                <div class="form-group">   
+                 <label for="birthdate">Birth date</label> 
+                 <input type="date" name="birthdate" class="form-control" ng-model="$ctrl.user.birthdate">
+               </div>
+             </form>
+           </div>
+         </div>
+       </div>
+       <div class="panel-footer">
+
+        <a ng-click="$ctrl.editUserData($ctrl.user)" 
+        data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-success"><i class="glyphicon glyphicon-ok"></i></a>
+        <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+
+      </div>
+    </div>
+  </div>
+  <!-- </div> -->

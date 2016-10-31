@@ -4,10 +4,10 @@
 	angular.module('UserData')
 
 	.component('userList', {
-	template: `<new-user-input add-user="$ctrl.addUser(newUser)" random-user="$ctrl.randomUser"></new-user-input><br>
+	template: `
 	<user-card user-data="$ctrl.userData" index="$index" 
 	remove-user="$ctrl.removeUser(user)" 
-	ng-repeat="user in $ctrl.userData track by $index"></user-card><ui-view></ui-view>`,
+	ng-repeat="user in $ctrl.userData track by $index"></user-card>`,
 	controller: UserListController,
 	bindings: {
 		randomUser: '<'

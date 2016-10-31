@@ -1,11 +1,11 @@
 		<div class="col-md-3 col-lg-3">
 			<div class="panel">
-				<div class="panel panel-header">LIST OF CONTACTS
+				<div class="panel panel-header">LIST OF CONTACTS <span class="badge">{{$ctrl.users.length}}</span>  <a ui-sref="newuser"><span class="label label-warning contact-label">Add contact</span></a>
 
 				</div>
 				<div class="panel panel-body">
 					<ul class="list-group" ng-repeat="user in $ctrl.users">
-					<a ui-sref="userdetail({userId: user._id})"><li class="list-group-item">{{user.fullName}}<span class="badge">12</span></li></a>		 
+					<a ui-sref="userdetail({userId: user._id})"><li class="list-group-item">{{user.fullName}}</li></a>		 
 					</ul>
 				</div>
 			</div>

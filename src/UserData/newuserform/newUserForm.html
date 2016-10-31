@@ -1,10 +1,31 @@
-<form name="userForm" novalidate>
-<input type="" name="fullName" placeholder="Full name" ng-model="$ctrl.user.fullName">
-<input type="email" name="email" placeholder="email" ng-model="$ctrl.user.email">
-<input type="date" name="birthdate" ng-model="$ctrl.user.birthdate"><br>
-Gender: 
-<input type="radio" name="gender" value="male" ng-model="$ctrl.user.gender">male
-<input type="radio" name="gender" value="female" ng-model="$ctrl.user.gender">female<br>
-<input type="text" name="address" ng-model="$ctrl.user.address">
-	
-</form>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-1 col-lg-offset-1 toppad" >
+        	<div class="panel panel-default">
+        		<div class="panel-heading">
+        			<h4 class="panel-title">Add new user</h4>
+        		</div>
+        		<div class="panel-body">
+        			<form name="userForm" novalidate>
+        				<div class="form-group">
+        					<label for="fullName">Full name</label>
+        					<input type="" name="fullName" class="form-control" placeholder="Full name" ng-model="$ctrl.user.fullName">
+        				</div>
+        				<div class="form-group">
+        					<label for="email">Email</label>
+        					<input type="email" name="email" class="form-control" placeholder="email" ng-model="$ctrl.user.email">
+        				</div>
+        				<label for="birthdate">Birth date</label><input type="date" class="form-control" name="birthdate" ng-model="$ctrl.user.birthdate"><br>
+        				<label for="gender">Gender: </label>
+        				<input type="radio" name="gender" value="male"  ng-model="$ctrl.user.gender">male
+        				<input type="radio" name="gender" value="female"  ng-model="$ctrl.user.gender">female<br>
+        				<label for="address">Address </label><textarea type="text" name="address" class="form-control" ng-model="$ctrl.user.address"></textarea>
+
+        			</form>
+        		</div>
+        		<div class="panel-footer">
+        		<a ng-click="$ctrl.addUserData($ctrl.user)" 
+        			data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-success"><i class="glyphicon glyphicon-ok"></i></a>
+        			<a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+
+        		</div>
+        	</div>
+        </div>

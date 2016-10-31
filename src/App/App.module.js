@@ -29,16 +29,16 @@ LoginController.$inject = ['AccessControl', '$stateParams','$state'];
   		this.showLoginResponse = true; $state.go('success')}, 
   		(errorMessage)=>{this.loginResponse = errorMessage; this.showSpinner = false; 
   		this.showLoginResponse = true;});
-
   }
-  
 };
 
 function SuccessController(username) {
 	this.username = username;
 }
 
-function UserController() {
+UserController.$inject = ['users'];
+function UserController(users) {
+  this.users = users;
 };
 
 MailsController.$inject = ['mails'];

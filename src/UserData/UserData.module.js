@@ -8,10 +8,11 @@ angular.module('UserData', ['ui.router'])
 
 
 
-UserDetailController.$inject = ['users', 'user']
+UserDetailController.$inject = ['users','user']
 function UserDetailController(users, user) {
 	this.users = users;
-	this.user = user;
+
+	this.user = (user || users[0]);
 }
 
 EditProfileStateController.$inject = ['user']

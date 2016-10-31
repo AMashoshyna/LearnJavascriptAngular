@@ -9,8 +9,8 @@
 <div class="container-fluid">
 <div class="navbar-left">   
 <ul class="nav nav-pills">
-          <li  ng-class="{active: ($ctrl.$state.includes('users')|| $ctrl.$state.includes('userdetail'))}"><a ui-sref="users">CONTACTS</a></li>
           <li ng-class="{active: $ctrl.$state.includes('mails')}"><a ui-sref="inbox" >MAILBOX</a></li>
+          <li  ng-class="{active: ($ctrl.$state.includes('users')|| $ctrl.$state.includes('userdetail'))}"><a ui-sref="userdetail">CONTACTS</a></li>
    	   </ul> 
    	   </div>
    	   <p class="navbar-text navbar-right">Signed in as: <b>{{$ctrl.user.username}}</b> 

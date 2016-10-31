@@ -29,8 +29,11 @@
     })
 
 		.state('newmail', {
-			url: '/newmail',
+			url: '/newmail:?useremail',
 			parent:'mails',
+			params: {
+				useremail: null,
+			},
 			template: 
 			`
 			<new-mail add-mail="$ctrl.addMail(mail)" save-to-drafts="$ctrl.saveToDrafts(mail)"></new-mail>`
