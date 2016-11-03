@@ -9,18 +9,23 @@ angular.module('UserData')
 	controller: UserFormController
 })
 
-UserFormController.$inject = ['UserCardService'];
-function UserFormController(UserCardService) {
+UserFormController.$inject = ['UserCardService', '$state'];
+function UserFormController(UserCardService, $state) {
 	this.user = {
-		fullName: '',
+		firstName: '',
+		lastName: '',
 		birthDate: '',
 		gender: '',
 		address: '',
 		avatar: ''
 	};
+	
 
 	this.addUser = function(user) {
-		UserCardService.addUser(user)
+		user.fullName = user.firstName + ' '+ user.lastName;
+		this.user = UserCardService.addUser(user).then(response=>{
+			$state.go('userdetail', {'userId': response._id})
+		})
 	}
 
 }

@@ -4,8 +4,8 @@
 
 				</div>
 				<div class="panel panel-body">
-					<ul class="list-group" ng-repeat="user in $ctrl.users">
-					<a ui-sref="userdetail({userId: user._id})"><li class="list-group-item">{{user.fullName}}</li></a>		 
+					<ul class="list-group" ng-repeat="user in $ctrl.users | orderBy: 'lastName'">
+					<a ui-sref="userdetail({userId: user._id})"><li class="list-group-item">{{user.lastName}}, {{user.firstName}}</li></a>		 
 					</ul>
 				</div>
 			</div>

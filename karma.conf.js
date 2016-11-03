@@ -16,8 +16,16 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
     'lib/angular.min.js',
+    'lib/angular-ui-router.min.js',
+    'lib/angular-mocks.js',
+    'src/App/App.module.js',
     'src/App/login/App.module.login.component.js',
-    'src/App/login/App.module.login.component.spec.js'
+    'src/App/login/App.module.login.component.spec.js',
+    'src/UserData/UserData.module.js',
+     'src/MailBox/MailBox.module.js',
+
+    'src/App/data/App.module.access.service.js',
+    'src/App/data/App.module.access.service.spec.js',
     ],
 
 

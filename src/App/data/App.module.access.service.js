@@ -43,6 +43,10 @@ function AccessControl($q) {
     } 
     return this.auth;
   }
+
+  this.sum = function(a, b) {
+    return a + b
+  }
 };
 
 })();

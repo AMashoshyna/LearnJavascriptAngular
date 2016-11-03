@@ -257,6 +257,19 @@ cursor: pointer
 .navbar-left {
 vertical-align: middle;
 }
+.form-group.required .control-label:after { 
+   content:"*";
+   color:red;
+}
+
+.ng-touched.ng-valid {
+  border: 2px green solid;
+}
+
+.ng-touched.ng-invalid {
+  border: 2px red solid;
+}
+
 
 
 
