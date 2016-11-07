@@ -8,15 +8,33 @@
 UserCardService.$inject = ['$http']
 function UserCardService($http) {
 	var service = this;
+	this.usersData = {};
+	this.userData = {};
 
 	this.getUserData = function() {
 		return $http.get('//test-api.javascript.ru/v1/amashoshyna/users')
-		.then((response) => response.data);
+		.then((response) => {
+
+				for(var i= 0; i < response.data.length; i++) {
+		response.data[i] = processName(response.data[i]);
+	}
+	function processName(user) {
+		user.firstName = user.fullName.slice(0, user.fullName.indexOf(' '));
+		user.lastName = user.fullName.slice(user.fullName.indexOf(' ') +1, user.fullName.length)
+		return user;
+		
+	}
+			this.usersData.users = response.data;
+			return response.data;
+		});
 	};
 
 		this.getUser = function(userId) {
 		return $http.get('//test-api.javascript.ru/v1/amashoshyna/users/'+ userId)
-		.then((response) => response.data);
+		.then((response) => {
+			this.userData.user = response.data;
+			return response.data;
+		});
 	};
 
 	this.getRandomUser = function() {
@@ -26,12 +44,15 @@ function UserCardService($http) {
 
 	this.addUser = (newUser) => {
 		return $http.post('//test-api.javascript.ru/v1/amashoshyna/users', newUser)
-		.then((response) => response.data);
+		.then((response) => {
+			this.usersData.users.push(response.data);
+			return response.data;
+		});
 	};
 
 	this.removeUser = function(user) {
 		return $http.delete('//test-api.javascript.ru/v1/amashoshyna/users/'+ user._id)
-		.then((response) => response.data);
+		// .then((response) => response.data);
 	};
 
 	this.editUserData = function(user) {

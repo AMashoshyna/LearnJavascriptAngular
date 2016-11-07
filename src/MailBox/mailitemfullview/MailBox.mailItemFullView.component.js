@@ -12,6 +12,8 @@
 
 		MailItemFullViewController.$inject = ['MailBoxService', '$state']
 		function MailItemFullViewController(MailBoxService, $state) {
+       
+
 			this.removeMail = function (mailId) {
 				MailBoxService.removeMail(mailId).then(()=> {
 				$state.go('inbox');

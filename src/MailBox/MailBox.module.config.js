@@ -13,19 +13,13 @@
 			parent:'mails',
 			template: `
 
-			<mail-list mails="MailListController.mails"
+			<mail-list show-saved-message = "MailListController.showSavedMessage">
 			</mail-list>
 			`,
 			params: {
 				mailId: null,
-        	// removeMail: null,
         },
-        resolve: {
-        	mails: ['MailBoxService', function(MailBoxService) {
-        		return MailBoxService.getAllMails();
-        	}]
-        },
-        controller: 'MailListController as MailListController'
+        controller: 'MailListController as MailListController',
     })
 
 		.state('newmail', {
@@ -66,16 +60,26 @@
 
 			},
 		})
+		.state('draftsaved', {
+			template: '<div class="panel panel-info"><h4>Your draft has been saved.</h4></div>',
+			url: '/draftsaved',
+			parent:'mails',
+			onEnter: function($state, $timeout) {
+				$timeout(()=>{$state.go('inbox')},2000)
+
+			},
+		})
 		.state('drafts', {
 			url: '/drafts',
 			parent: 'mails',
 			template: '<draft-items removeMail = "$ctrl.removeMail(mail)" mails = draftCtrl.mails></drafts-items>',
-			resolve: {
-				mails: ['MailBoxService', function(MailBoxService) {
-					return MailBoxService.getAllMails()
-					.then((response) => {return response.filter((item) => {return item.mailbox === '580c8cc99de15a250410dbbf'})});
-				}]
-			},
+			controller: 'DraftsItemsController as draftCtrl'
+
+		})
+		.state('spam', {
+			url: '/spam',
+			parent: 'mails',
+			template: '<draft-items removeMail = "$ctrl.removeMail(mail)" mails = draftCtrl.mails></drafts-items>',
 			controller: 'DraftsItemsController as draftCtrl'
 
 		})

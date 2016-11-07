@@ -45,9 +45,7 @@
 		this.mails = mails;
 	};
 
-	DraftsItemsController.$inject = ['mails'];
-	function DraftsItemsController(mails) {
-		this.mails = mails;
-	}
-
+	DraftsItemsController.$inject = [];
+	function DraftsItemsController() {
+	};
 })();

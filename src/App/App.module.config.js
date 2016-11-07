@@ -50,17 +50,17 @@
 			abstract: true,
 			// url: '/users',
 			parent:'start',
-			template: ` <contacts users="userCtrl.users"></contacts> `,
+			template: ` <contacts></contacts> `,
 			// resolve: {
 			// 	randomUser: ['UserCardService', function(UserCardService) {
 			// 		return UserCardService.getRandomUser().then((response) => {console.log(response);})
 			// 	}]
 			// },
-				 	resolve: {
-	 		users: ['UserCardService', function(UserCardService) {
-	 			return UserCardService.getUserData();
-	 		}],
-	 	},
+			// 	 	resolve: {
+	 	// 	users: ['UserCardService', function(UserCardService) {
+	 	// 		return UserCardService.getUserData();
+	 	// 	}],
+	 	// },
 			controller: 'UserController as userCtrl'
 		})
 

@@ -5,10 +5,10 @@
 		<p></p>
 		<!-- <a ui-sref="newmail"><div class="list-group-item" ></div></a> -->
 		<a ui-sref="inbox({removeMail: $ctrl.removeMail})"
-		ng-click="dimMe = true" ><div class="list-group-item " ng-class="{active:$ctrl.$state.includes('inbox')}">INBOX ({{$ctrl.length}})</div></a>
-		<a ui-sref="drafts" class="mailbox-menu-item"><div class="list-group-item" ng-class="{active:$ctrl.$state.includes('drafts')}">DRAFTS</div></a>
+		ng-click="dimMe = true" ><div class="list-group-item " ng-class="{active:$ctrl.$state.includes('inbox')}">INBOX ({{$ctrl.data.inbox.length}})</div></a>
+		<a ui-sref="drafts" class="mailbox-menu-item"><div class="list-group-item" ng-class="{active:$ctrl.$state.includes('drafts')}">DRAFTS ({{$ctrl.data.drafts.length}})</div></a>
 		<a ui-sref="sent" class="mailbox-menu-item"><div class="list-group-item" ng-class="{active:$ctrl.$state.includes('sent')}">SENT</div></a>
-		<!-- <div class="list-group-item">SPAM</div> -->
+		<div class="list-group-item">SPAM ({{$ctrl.data.spam.length}})</div>
 		<a ui-sref="folders" class="mailbox-menu-item"><div class="list-group-item" ng-class="{active:$ctrl.$state.includes('folders')}">MANAGE FOLDERS</div></a>
 	</div>
 </div>

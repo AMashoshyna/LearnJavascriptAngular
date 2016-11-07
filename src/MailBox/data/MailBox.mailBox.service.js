@@ -3,8 +3,8 @@
 	angular.module('MailBox')
 	.service('MailBoxService', MailBoxService);
 
-	MailBoxService.$inject = ['$http'];
-	function MailBoxService($http) {
+	MailBoxService.$inject = ['$http','$timeout'];
+	function MailBoxService($http, $timeout) {
     var service = this;
     service.mailboxes;
     service.mailbox;
@@ -46,13 +46,11 @@ this.checkIfMailBoxExists = function(mailboxname) {
        continue;
      } else {
       result = true
-      console.log('result' + result);
       return;
     } 
     result = false;
   };
   this.check = result;
-  console.log('result' + result);
   return result;
 })
 // return this.check;
@@ -63,14 +61,28 @@ this.getMailBox = function() {
 }
 
 /* ----MAILS MANAGEMENT----*/
-this.mails;
+this.data = {};
 this.getAllMails = function() {
   return $http.get('//test-api.javascript.ru/v1/amashoshyna/letters')
   .then((response) => {
-    this.mails = response.data;
-    return response.data;s
+    this.data.mails = response.data;  
+
+    var inbox = response.data.filter((item) => {
+    return item.mailbox === '580ca4e99de15a250410dbc9'})
+    this.data.inbox = inbox;
+
+    var drafts = response.data.filter((item) => {
+    return item.mailbox === '580c8cc99de15a250410dbbf'})
+    this.data.drafts = drafts;
+
+    var spam = response.data.filter((item) => {
+    return item.mailbox === '580c8c949de15a250410dbbe'})
+    this.data.spam = spam;
+
+    return response.data;
   });
 };
+
 
 this.getMail = function(mailId) {
   return $http.get('//test-api.javascript.ru/v1/amashoshyna/letters/' + mailId)
@@ -79,18 +91,40 @@ this.getMail = function(mailId) {
 
 this.newMail = function(newMail) {
   return $http.post('//test-api.javascript.ru/v1/amashoshyna/letters', newMail)
-  .then((response) => response.data);
+  .then((response) => {
+    this.data.inbox.push(response.data);
+  });
 };
 
+this.showDraftMessage = {};
 this.saveToDrafts = function(newMail) {
   newMail.mailbox = '580c8cc99de15a250410dbbf';
   return $http.post('//test-api.javascript.ru/v1/amashoshyna/letters', newMail)
-  .then((response) => response.data);
+  .then((response) => {
+    this.showDraftMessage.value = true;
+    this.data.drafts.push(newMail)
+    var that= this;
+
+    // $timeout(function() {
+    //   that.showDraftMessage.value = false;
+    // }, 2000);
+  });
 };
+
+this.moveToSpam = function(mail) {
+  mail.mailbox = '580c8c949de15a250410dbbe';
+  return $http.post('//test-api.javascript.ru/v1/amashoshyna/letters', mail)
+  .then((response) => {
+  this.data.spam.push(mail);
+  this.data.inbox.splice(this.data.inbox.indexOf(mail),1);
+
+  });
+}
 
 this.removeMail = function(mailId) {
   return $http.delete('//test-api.javascript.ru/v1/amashoshyna/letters/'+ mailId)
-  .then((response) => response.data);
+  .then((response) => 
+   this.getAllMails());
 };
 
 this.editMail = function(mailId, property, value) {

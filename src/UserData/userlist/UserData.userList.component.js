@@ -9,9 +9,9 @@
 	remove-user="$ctrl.removeUser(user)" 
 	ng-repeat="user in $ctrl.userData track by $index"></user-card>`,
 	controller: UserListController,
-	bindings: {
-		randomUser: '<'
-	}
+	// bindings: {
+	// 	randomUser: '<'
+	// }
 });
 
 

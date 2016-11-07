@@ -36,15 +36,31 @@ function SuccessController(username) {
 	this.username = username;
 }
 
-UserController.$inject = ['users'];
-function UserController(users) {
-  this.users = users;
+// UserController.$inject = ['users'];
+// function UserController(users) {
+//   this.users = users;
+// };
+
+UserController.$inject = ['UserCardService'];
+function UserController(UserCardService) {
+  UserCardService.getUserData();
+  // this.users = users;
 };
 
-MailsController.$inject = ['mails'];
-function MailsController(mails) {
-  this.mails = mails;
+// MailsController.$inject = ['mails'];
+// function MailsController(mails) {
+//   this.mails = mails;
+// };
+
+MailsController.$inject = ['MailBoxService'];
+function MailsController(MailBoxService) {
+  MailBoxService.getAllMails();
+   // MailBoxService.getInbox();
+    // MailBoxService.getDrafts();
 }
+
+
+
 })();
 
 

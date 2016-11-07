@@ -6,17 +6,13 @@
 		.component('mailBoxMenu', {
 	  templateUrl: 'src/MailBox/mailbox/mailboxmenu/mailBoxMenu.html',
 	  controller: MailBoxMenuController,
-	  bindings: {
-	  	mails: '<'
-	  }
 	})
 
 MailBoxMenuController.$inject = ['MailBoxService', '$state']
 function MailBoxMenuController(MailBoxService, $state) {
+	this.data = MailBoxService.data;
 
-	// to be checked later(mails object includes mails property)
 	this.$state = $state;
-	this.length = this.mails.mails.length;
 
 
 }
