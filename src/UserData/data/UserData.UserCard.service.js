@@ -5,14 +5,14 @@
 
 .service('UserCardService', UserCardService);
 
-UserCardService.$inject = ['$http']
-function UserCardService($http) {
+UserCardService.$inject = ['$http', 'apiPath']
+function UserCardService($http, apiPath) {
 	var service = this;
 	this.usersData = {};
 	this.userData = {};
 
 	this.getUserData = function() {
-		return $http.get('//test-api.javascript.ru/v1/amashoshyna/users')
+		return $http.get(apiPath + '/users')
 		.then((response) => {
 
 				for(var i= 0; i < response.data.length; i++) {
@@ -30,20 +30,16 @@ function UserCardService($http) {
 	};
 
 		this.getUser = function(userId) {
-		return $http.get('//test-api.javascript.ru/v1/amashoshyna/users/'+ userId)
+		return $http.get(apiPath + '/users/'+ userId)
 		.then((response) => {
 			this.userData.user = response.data;
 			return response.data;
 		});
 	};
 
-	this.getRandomUser = function() {
-		// return $http.get('https://randomuser.me/api/')
-		// .then((response) => response.data);
-	}
 
 	this.addUser = (newUser) => {
-		return $http.post('//test-api.javascript.ru/v1/amashoshyna/users', newUser)
+		return $http.post(apiPath + '/users', newUser)
 		.then((response) => {
 			this.usersData.users.push(response.data);
 			return response.data;
@@ -51,12 +47,13 @@ function UserCardService($http) {
 	};
 
 	this.removeUser = function(user) {
-		return $http.delete('//test-api.javascript.ru/v1/amashoshyna/users/'+ user._id)
+		confirm('Are you sure you want to delete this user from contact list?')
+		return $http.delete(apiPath + '/users/'+ user._id)
 		// .then((response) => response.data);
 	};
 
 	this.editUserData = function(user) {
-		return $http.patch('//test-api.javascript.ru/v1/amashoshyna/users/' + user._id, user)
+		return $http.patch(apiPath + '/users/' + user._id, user)
 		.then((response) => response.data);
 	}
 

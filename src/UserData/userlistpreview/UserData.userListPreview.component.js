@@ -8,6 +8,7 @@ angular.module('UserData')
 
 function userListPreviewController(UserCardService) {
 	this.usersData = UserCardService.usersData;
+	this.searchQuery = '';
 	console.log(this.usersData)
 }
 })();

@@ -41,14 +41,10 @@
 				}]
 			},
 		})
-		.state('loginfailure', {
-			template: ``,
-			parent: 'login'
-		})
 		.state('users', {
 			abstract: true,
 			parent:'start',
-			template: ` <contacts></contacts> `,
+			template: `<user-list-preview></user-list-preview><ui-view><loading-spinner></loading-spinner></ui-view>`,
 			controller: 'UserController as userCtrl'
 		})
 

@@ -13,9 +13,13 @@
 
   });
 
-UserCardFullController.$inject = ['UserCardService'];
-function UserCardFullController(UserCardService) {
+UserCardFullController.$inject = ['UserCardService', '$state'];
+function UserCardFullController(UserCardService, $state) {
 	this.userData = UserCardService.userData;
+	this.removeUser = function(user){
+            UserCardService.removeUser(user);
+            $state.go('userdetail')
+	}
 
 }
 

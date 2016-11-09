@@ -5,9 +5,10 @@
 
 	.component('userList', {
 	template: `
-	<user-card user-data="$ctrl.userData" index="$index" 
+	<div class="container-fluid"><user-card user-data="$ctrl.userData" index="$index" 
 	remove-user="$ctrl.removeUser(user)" 
-	ng-repeat="user in $ctrl.userData track by $index"></user-card>`,
+	ng-repeat="user in $ctrl.userData track by $index"></user-card>
+	</div>`,
 	controller: UserListController,
 	// bindings: {
 	// 	randomUser: '<'

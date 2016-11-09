@@ -1,10 +1,11 @@
 (function() {
 	'use strict';
 	angular.module('MailBox')
-	.service('MailBoxService', MailBoxService);
 
-	MailBoxService.$inject = ['$http','$timeout'];
-	function MailBoxService($http, $timeout) {
+  .service('MailBoxService', MailBoxService)
+
+	MailBoxService.$inject = ['$http','$timeout', 'apiPath'];
+	function MailBoxService($http, $timeout, apiPath) {
     var service = this;
     service.mailboxes;
     service.mailbox;
@@ -12,7 +13,7 @@
 
     /* -----MAILBOXES MANAGEMENT------*/
     this.mailBoxCreation = function(mailbox) {
-     $http.get('//test-api.javascript.ru/v1/amashoshyna/mailboxes')
+     $http.get(apiPath + '/mailboxes')
      .then((response) => response.data)
      .then((data) => {service.mailboxes =data; 
        if(service.mailboxes[0]) {
@@ -22,16 +23,16 @@
    };
 
    this.makeNewMailBox = function(mailboxname) {
-      return $http.post('//test-api.javascript.ru/v1/amashoshyna/mailboxes', {"title": mailboxname})
+      return $http.post(apiPath + '/mailboxes', {"title": mailboxname})
       .then((response) => {return response.data});
 };
 
 this.getFolders = function() {
-  return $http.get('//test-api.javascript.ru/v1/amashoshyna/mailboxes')
+  return $http.get(apiPath + '/mailboxes')
   .then((response) => {return response.data});
 };
 this.removeFolder = function(folderId) {
-  return $http.delete('//test-api.javascript.ru/v1/amashoshyna/mailboxes/'+ folderId)
+  return $http.delete(apiPath + '/mailboxes/'+ folderId)
   .then((response) => response.data);
 };
 
@@ -63,7 +64,7 @@ this.getMailBox = function() {
 /* ----MAILS MANAGEMENT----*/
 this.data = {};
 this.getAllMails = function() {
-  return $http.get('//test-api.javascript.ru/v1/amashoshyna/letters')
+  return $http.get(apiPath + '/letters')
   .then((response) => {
     this.data.mails = response.data;  
 
@@ -85,14 +86,14 @@ this.getAllMails = function() {
 
 
 this.getMail = function(mailId) {
-  return $http.get('//test-api.javascript.ru/v1/amashoshyna/letters/' + mailId)
+  return $http.get(apiPath + '/letters/' + mailId)
   .then((response) => response.data);
 };
 
 this.showSentMessage ={};
 
 this.newMail = function(newMail) {
-  return $http.post('//test-api.javascript.ru/v1/amashoshyna/letters', newMail)
+  return $http.post( apiPath + '/letters', newMail)
   .then((response) => {
     this.showSentMessage.value = true;
     this.data.inbox.push(response.data);
@@ -103,21 +104,17 @@ this.showDraftMessage = {};
 
 this.saveToDrafts = function(newMail) {
   newMail.mailbox = '580c8cc99de15a250410dbbf';
-  return $http.post('//test-api.javascript.ru/v1/amashoshyna/letters', newMail)
+  return $http.post(apiPath + '/letters', newMail)
   .then((response) => {
     this.showDraftMessage.value = true;
     this.data.drafts.push(newMail)
     var that= this;
-
-    // $timeout(function() {
-    //   that.showDraftMessage.value = false;
-    // }, 2000);
   });
 };
 
 this.moveToSpam = function(mail) {
   mail.mailbox = '580c8c949de15a250410dbbe';
-  return $http.post('//test-api.javascript.ru/v1/amashoshyna/letters', mail)
+  return $http.post(apiPath + '/letters', mail)
   .then((response) => {
   this.data.spam.push(mail);
   this.data.inbox.splice(this.data.inbox.indexOf(mail),1);
@@ -125,14 +122,24 @@ this.moveToSpam = function(mail) {
   });
 }
 
+this.deleteMessageMsg = {
+  deleting: false,
+  deleted: false
+}
 this.removeMail = function(mailId) {
-  return $http.delete('//test-api.javascript.ru/v1/amashoshyna/letters/'+ mailId)
-  .then((response) => 
-   this.getAllMails());
+  confirm('Are you sure you want to delete selected items?');
+this.deleteMessageMsg.deleting = true;
+ 
+  return $http.delete(apiPath + '/letters/'+ mailId)
+      .then((response) => {
+   this.getAllMails();
+ this.deleteMessageMsg.deleting = false;  
+      }
+ );
 };
 
 this.editMail = function(mailId, property, value) {
-  return $http.delete('//test-api.javascript.ru/v1/amashoshyna/letters/'+ mailId, {property: value} )
+  return $http.patch(apiPath + '/letters/'+ mailId, {property: value} )
   .then((response) => response.data);
 
 }

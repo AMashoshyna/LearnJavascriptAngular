@@ -14,6 +14,7 @@
 	function MailListComponentController(MailBoxService, $scope) {
 
     this.data = MailBoxService.data;
+    this.deleteMessageMsg = MailBoxService.deleteMessageMsg;
 		// this.sortType = "";
 		this.searchQuery = "";
 		this.removeMail = function(mail) {
@@ -24,7 +25,7 @@
 			var mails = this.data.inbox;
 			var selectedMails = [];
 			for (var i = 0; i < mails.length; i++) {
-				if(mails[i].selected == true) {
+				if(mails[i].selected  ||  mails[i].checked == 'checked') {
 					selectedMails.push(mails[i]);
 				} else {
 					continue;

@@ -270,6 +270,16 @@ vertical-align: middle;
   border: 2px red solid;
 }
 
+.big-checkbox {
+  width:20px; 
+  height:20px;
+}
 
+.navbar-default {
+  padding: 10px;
+}
 
+.navbar-text {
+  margin: 0;
+}
 
