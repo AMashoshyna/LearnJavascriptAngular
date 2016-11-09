@@ -14,8 +14,8 @@
    	   </ul> 
    	   </div>
    	   <p class="navbar-text navbar-right">Signed in as: <b>{{$ctrl.user.username}}</b> 
-   	   <button ui-sref="login" ng-if="!$ctrl.loggedIn">Sign in</button>
-   	   <button ui-sref="login" ng-if="$ctrl.loggedIn">Sign out</button></p>
+   	   <button ui-sref="login" ng-if="!$ctrl.loggedIn.isAuth">Sign in</button>
+   	   <button  ng-click="$ctrl.logout()" ng-if="$ctrl.loggedIn.isAuth">Sign out</button></p>
    	   </div>  
    	   </div> 
 
@@ -29,7 +29,11 @@
 	AppModuleController.$inject = ['AccessControl', '$state'];
 	function AppModuleController(AccessControl, $state) {
 		this.user = AccessControl.getCurrentUser();
-		this.loggedIn = AccessControl.checkLogin();
+		this.loggedIn = AccessControl.auth;
+		this.logout = function() {
+			AccessControl.logout();
+			$state.go('login')
+		}
 		this.$state = $state;
 
 		// this.showMailButton = function($state) {

@@ -89,14 +89,18 @@ this.getMail = function(mailId) {
   .then((response) => response.data);
 };
 
+this.showSentMessage ={};
+
 this.newMail = function(newMail) {
   return $http.post('//test-api.javascript.ru/v1/amashoshyna/letters', newMail)
   .then((response) => {
+    this.showSentMessage.value = true;
     this.data.inbox.push(response.data);
   });
 };
 
 this.showDraftMessage = {};
+
 this.saveToDrafts = function(newMail) {
   newMail.mailbox = '580c8cc99de15a250410dbbf';
   return $http.post('//test-api.javascript.ru/v1/amashoshyna/letters', newMail)

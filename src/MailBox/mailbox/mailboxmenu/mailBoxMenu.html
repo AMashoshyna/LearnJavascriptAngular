@@ -8,7 +8,7 @@
 		ng-click="dimMe = true" ><div class="list-group-item " ng-class="{active:$ctrl.$state.includes('inbox')}">INBOX ({{$ctrl.data.inbox.length}})</div></a>
 		<a ui-sref="drafts" class="mailbox-menu-item"><div class="list-group-item" ng-class="{active:$ctrl.$state.includes('drafts')}">DRAFTS ({{$ctrl.data.drafts.length}})</div></a>
 		<a ui-sref="sent" class="mailbox-menu-item"><div class="list-group-item" ng-class="{active:$ctrl.$state.includes('sent')}">SENT</div></a>
-		<div class="list-group-item">SPAM ({{$ctrl.data.spam.length}})</div>
+		<a ui-sref="spam" class="mailbox-menu-item"><div class="list-group-item">SPAM ({{$ctrl.data.spam.length}})</div></a>
 		<a ui-sref="folders" class="mailbox-menu-item"><div class="list-group-item" ng-class="{active:$ctrl.$state.includes('folders')}">MANAGE FOLDERS</div></a>
 	</div>
-</div>
+</div> 

@@ -46,9 +46,11 @@
 	};
 
 	this.showDraftMessage = MailBoxService.showDraftMessage;
+	this.showSentMessage = MailBoxService.showSentMessage;
+
 	$scope.$on('$stateChangeStart', function() {
-		console.log(this);
-		this.showDraftMessage = false;
+		MailBoxService.showDraftMessage.value = false;
+		MailBoxService.showSentMessage.value = false;
 
 	})
 }

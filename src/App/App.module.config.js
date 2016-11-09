@@ -15,7 +15,6 @@
 		})
 		.state('login', {
 			url: '/login',
-			// parent: 'start',
 			template: `<login username = "ctrl.username" email = "ctrl.email" 
 			password = "ctrl.password" show-spinner = "ctrl.showSpinner" 
 			check-credentials = "ctrl.checkCredentials(email, password)"
@@ -48,19 +47,8 @@
 		})
 		.state('users', {
 			abstract: true,
-			// url: '/users',
 			parent:'start',
 			template: ` <contacts></contacts> `,
-			// resolve: {
-			// 	randomUser: ['UserCardService', function(UserCardService) {
-			// 		return UserCardService.getRandomUser().then((response) => {console.log(response);})
-			// 	}]
-			// },
-			// 	 	resolve: {
-	 	// 	users: ['UserCardService', function(UserCardService) {
-	 	// 		return UserCardService.getUserData();
-	 	// 	}],
-	 	// },
 			controller: 'UserController as userCtrl'
 		})
 
