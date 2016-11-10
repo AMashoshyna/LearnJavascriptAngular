@@ -79,8 +79,8 @@
 		.state('spam', {
 			url: '/spam',
 			parent: 'mails',
-			template: '<draft-items removeMail = "$ctrl.removeMail(mail)" mails = draftCtrl.mails></drafts-items>',
-			controller: 'DraftsItemsController as draftCtrl'
+			template: '<spam-items></spam-items>',
+			controller: 'SpamItemsController as spamCtrl'
 
 		})
 		.state('sent', {

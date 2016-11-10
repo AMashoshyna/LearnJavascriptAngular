@@ -1,17 +1,16 @@
 (function() {
 	'use strict';
 	angular.module('MailBox')
-	.component('draftItems', {
-		templateUrl: 'src/MailBox/draftitems/draftItems.html',
+	.component('spamItems', {
+		templateUrl: 'src/MailBox/spamitems/spamItems.html',
 		bindings: {
 			mails: '<',
 		},
-		controller: DraftItemsComponentController
+		controller: SpamItemsComponentController
 	});
 
-	DraftItemsComponentController.$inject = ['MailBoxService'];
-	function DraftItemsComponentController(MailBoxService) {
-		MailBoxService.getAllMails();
+	SpamItemsComponentController.$inject = ['MailBoxService'];
+	function SpamItemsComponentController(MailBoxService) {
 this.data = MailBoxService.data;
 	};
 

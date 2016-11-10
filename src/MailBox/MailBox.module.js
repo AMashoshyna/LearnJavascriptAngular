@@ -13,6 +13,7 @@
 	.controller('MailFoldersController', MailFoldersController)
 	.controller('SentItemsController', SentItemsController)
 	.controller('DraftsItemsController', DraftsItemsController)
+	.controller('SpamItemsController', SpamItemsController)
 
 
 	MailListController.$inject = ['mails']
@@ -49,4 +50,9 @@
 	DraftsItemsController.$inject = [];
 	function DraftsItemsController() {
 	};
+
+	SpamItemsController.$inject = [];
+	function SpamItemsController() {
+		
+	}
 })();
