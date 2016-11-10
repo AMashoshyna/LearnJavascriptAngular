@@ -35,6 +35,7 @@
 		}
 
 		this.removeMultiple = function() {
+			confirm("Are you sure you want to delete selected items?")
 			this.getSelectedItems().forEach(function(mail){
 				MailBoxService.removeMail(mail._id)
 			})

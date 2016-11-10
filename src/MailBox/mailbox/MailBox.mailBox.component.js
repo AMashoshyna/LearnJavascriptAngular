@@ -2,18 +2,7 @@
 	'use strict';
 	angular.module('MailBox')
 	.component('mailbox', {
-	  template: 
-	  `
-	     <div class="row">
-	     <div class="categories col-sm-2">
-	     <mail-box-menu mails="$ctrl.mails"></mail-box-menu>
-	     </div>
-	     <div class="categories col-sm-10">
-
-          <ui-view></ui-view>
-          </div>
-       </div>
-      `,
+	  templateUrl: 'src/MailBox/mailbox/mailbox.html',
       bindings: {
       	mails: '<'
       },
@@ -35,11 +24,6 @@
 			MailBoxService.saveToDrafts(mail);
 		};
 		
-	    
-	    // $ctrl.removeMail = function(mailId) {
-	    // 	console.log('mail removal started')
-	    // 	MailBoxService.removeMail(mailIid);
-	    // }
 	}
 	
 	

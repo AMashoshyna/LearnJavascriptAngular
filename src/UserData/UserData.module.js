@@ -2,9 +2,7 @@
 	'use strict';
 angular.module('UserData', ['ui.router'])
 .constant('apiPath', '//test-api.javascript.ru/v1/amashoshyna')
-
-
-// route controllers
+	
 .controller('UserDetailController', UserDetailController)
 .controller('EditProfileStateController', EditProfileStateController)
 

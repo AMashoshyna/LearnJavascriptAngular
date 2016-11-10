@@ -13,8 +13,6 @@ function MailBoxMenuController(MailBoxService, $state) {
 	this.data = MailBoxService.data;
 
 	this.$state = $state;
-
-
 }
 
 	

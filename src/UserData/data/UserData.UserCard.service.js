@@ -47,7 +47,7 @@ function UserCardService($http, apiPath) {
 	};
 
 	this.removeUser = function(user) {
-		confirm('Are you sure you want to delete this user from contact list?')
+	
 		return $http.delete(apiPath + '/users/'+ user._id)
 		// .then((response) => response.data);
 	};

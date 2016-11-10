@@ -6,8 +6,6 @@ angular.module('UserData')
 
 RouterConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
 function RouterConfig($stateProvider, $urlRouterProvider) {
-	 // $urlRouterProvider.otherwise('userdetail');
-
 
 	 $stateProvider
 	 .state('list', {

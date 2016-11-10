@@ -12,6 +12,8 @@
         </div>
           <input type="text" class="form-control" placeholder="Search... " name="" ng-model="$ctrl.searchQuery">
         </div>
+        <input type="checkbox" class="checkbox checkbox-inline big-checkbox" ng-model="$ctrl.selectAll">
+        <input type="submit" class="btn btn-default" ng-disabled="$ctrl.getSelectedItems().length==0" ng-click="$ctrl.removeMultiple()" value="delete">
           
         </div>
         </form>
@@ -28,17 +30,13 @@
             <th><a ng-click="$ctrl.sortType = 'subject'">Subject
             <span ng-show="$ctrl.sortType == 'subject'" class="fa fa-caret-down">
             </span></a></th></a></th>
-            <th><a></a></th>
-            <!-- <th><a></a></th> -->
           </tr>
         </thead>
         <tbody>
-          <tr class="row row-clickable" ng-repeat="mail in $ctrl.data.drafts | orderBy: $ctrl.sortType:sortReverse | filter: $ctrl.searchQuery"  href="javascript:;">
-          <td><input type="checkbox" name=""></td>
+          <tr class="row row-clickable" ng-repeat="mail in $ctrl.data.drafts | orderBy: $ctrl.sortType:sortReverse | filter: {to: $ctrl.searchQuery}"  href="javascript:;">
+          <td><input type="checkbox" name="" class="checkbox checkbox-inline big-checkbox" ng-model="mail.selected" ng-checked="$ctrl.selectAll"></td>
             <td><a ui-sref="mailfullview({index:$index, mailId: mail._id, removeMail: $ctrl.removeMail})">{{mail.to}}</a></td>
             <td><a ui-sref="mailfullview({index:$index, mailId: mail._id, removeMail: $ctrl.removeMail})">{{mail.subject}}</a></td>
-            <td><button class="btn btn-default btn-primary" 
-            ng-click="$ctrl.removeMail(mail)">REMOVE</button></td>
           </tr>
         </tbody>
       </table>

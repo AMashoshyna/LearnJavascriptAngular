@@ -10,9 +10,6 @@
 	ng-repeat="user in $ctrl.userData track by $index"></user-card>
 	</div>`,
 	controller: UserListController,
-	// bindings: {
-	// 	randomUser: '<'
-	// }
 });
 
 

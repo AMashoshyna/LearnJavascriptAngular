@@ -18,15 +18,6 @@ function FoldersController(MailBoxService){
 	};
 
 	this.addFolder = function(folderName) {
-		// MailBoxService.checkIfMailBoxExists(folderName).then((response) =>{console.log(response);
-
-		// })
-		// console.log((MailBoxService.checkIfMailBoxExists(folderName)))
-
-		// if(MailBoxService.checkIfMailBoxExists(folderName)) {
-		// 	alert(alert("Folder " + folderName + " already exists in your mailbox"));
-		// 	return;
-		// }
 		MailBoxService.makeNewMailBox(folderName)
 		.then((response) => { 
 

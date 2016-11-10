@@ -4,6 +4,7 @@
     <div class="panel-heading">
       <div class="panel-title">
         <h4>Spam</h4>
+
         <form>
         <div class="form-group">
         <div class="input-group">
@@ -12,6 +13,8 @@
         </div>
           <input type="text" class="form-control" placeholder="Search... " name="" ng-model="$ctrl.searchQuery">
         </div>
+                <input type="checkbox" class="checkbox checkbox-inline big-checkbox" ng-model="$ctrl.selectAll">
+        <input type="submit" class="btn btn-default" ng-disabled="$ctrl.getSelectedItems().length==0" ng-click="$ctrl.removeMultiple()" value="delete">
           
         </div>
         </form>
@@ -32,7 +35,7 @@
         </thead>
         <tbody>
           <tr class="row row-clickable" ng-repeat="mail in $ctrl.data.spam | orderBy: $ctrl.sortType:sortReverse | filter: $ctrl.searchQuery"  href="javascript:;">
-          <td><input type="checkbox" name=""></td>
+          <td><input type="checkbox" name="" class="checkbox checkbox-inline big-checkbox" ng-model="mail.selected" ng-checked="$ctrl.selectAll"></td>
             <td><a ui-sref="mailfullview({index:$index, mailId: mail._id, removeMail: $ctrl.removeMail})">{{mail.to}}</a></td>
             <td><a ui-sref="mailfullview({index:$index, mailId: mail._id, removeMail: $ctrl.removeMail})">{{mail.subject}}</a></td>
           </tr>

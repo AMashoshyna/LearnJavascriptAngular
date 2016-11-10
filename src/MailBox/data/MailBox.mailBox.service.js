@@ -76,6 +76,10 @@ this.getAllMails = function() {
     return item.mailbox === '580c8cc99de15a250410dbbf'})
     this.data.drafts = drafts;
 
+    var sent = response.data.filter((item) => {
+    return item.mailbox === '580c94289de15a250410dbc0'})
+    this.data.sent = sent;
+
     var spam = response.data.filter((item) => {
     return item.mailbox === '580c8c949de15a250410dbbe'})
     this.data.spam = spam;
@@ -127,7 +131,6 @@ this.deleteMessageMsg = {
   deleted: false
 }
 this.removeMail = function(mailId) {
-  confirm('Are you sure you want to delete selected items?');
 this.deleteMessageMsg.deleting = true;
  
   return $http.delete(apiPath + '/letters/'+ mailId)
