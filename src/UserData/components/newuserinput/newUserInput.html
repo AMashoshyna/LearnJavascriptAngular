@@ -1,0 +1,13 @@
+
+
+<div>Add new user to data base:</div>
+<form>
+<input name="user-name" placeholder="User name" ng-model="$ctrl.newUser.fullName">
+<input name="email" placeholder="email" ng-model="$ctrl.newUser.email" ng-keydown="$event.which === 13 && $ctrl.addUserWrapper()">
+Gender
+  <input type="radio" name="gender" value="M" checked ng-model="$ctrl.newUser.gender"> Male
+  <input type="radio" name="gender" value="F" ng-model="$ctrl.newUser.gender"> Female
+<input type="date" name="birthdate" ng-model="$ctrl.newUser.birthdate">
+<input type="text" name="address" ng-model="$ctrl.newUser.address">
+<button ng-click="$ctrl.addUserWrapper()" ng-keydown="$event.which === 13 && $ctrl.addUserWrapper()">add user</button>
+</form>

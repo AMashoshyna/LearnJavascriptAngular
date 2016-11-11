@@ -13,9 +13,6 @@ describe('myApp', function() {
 
 	describe('service', function() {
 
-		it('should return sum', inject(function(AccessControl) {
-			expect(AccessControl.sum(1, 2)).toBe(3)
-		}));
 		it('should return true', inject(function(AccessControl) {
 			expect(AccessControl.checkUser(email, password)).toBe(true)
 		}));

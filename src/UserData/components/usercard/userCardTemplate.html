@@ -1,0 +1,17 @@
+<div class="col-md-3"><div class="panel panel-default">
+  <div class="panel-heading">
+    <a ui-sref="userdetail({userId: $ctrl.userData[$ctrl.index]._id})"><h3 class="panel-title" class=" col-md-9 col-lg-9 " ui-sref="userdetail()">{{$ctrl.userData[$ctrl.index].fullName}}</h3></a>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class=" col-md-9 col-lg-9 ">
+        <table class="table table-user-information">
+          <tbody>
+            <tr><td>Email</td><td><a href="mailto:{{user.email}}">{{$ctrl.userData[$ctrl.index].email}}</a></td></tr>
+            <tr><td></td><td><button ng-click="$ctrl.removeUser({user:$ctrl.userData[$ctrl.index]})">REMOVE</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div></div>

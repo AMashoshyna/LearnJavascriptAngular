@@ -1,0 +1,22 @@
+		<div class="col-md-3 col-lg-3">
+			<div class="panel">
+				<div class="panel panel-header">
+				<h4>
+				<span class="label label-success">{{$ctrl.usersData.users.length}} contacts</span>  
+					<a ui-sref="newuser"><span class="label label-warning contact-label">Add contact</span></a>
+                </h4>
+					<div class="input-group">
+						<div class="input-group-addon">
+							<i class="fa fa-search"></i>
+						</div>
+						<input type="text" class="form-control" placeholder="Search... " name="" ng-model="$ctrl.searchQuery">
+					</div>
+
+				</div>
+				<div class="panel panel-body">
+					<ul class="list-group" ng-repeat="user in $ctrl.usersData.users | filter: {fullName: $ctrl.searchQuery} | orderBy: 'lastName'">
+						<a ui-sref="userdetail({userId: user._id})"><li class="list-group-item">{{user.lastName}}, {{user.firstName}}</li></a>		 
+					</ul>
+				</div>
+			</div>
+		</div>
