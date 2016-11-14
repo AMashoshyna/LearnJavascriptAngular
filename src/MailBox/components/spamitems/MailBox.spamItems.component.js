@@ -1,50 +1,40 @@
 (function() {
 	'use strict';
 	angular.module('MailBox')
-	.component('spamItems', {
-		templateUrl: 'src/MailBox/spamitems/spamItems.html',
-		controller: SpamItemsComponentController
-	});
+		.component('spamItems', {
+			templateUrl: 'src/MailBox/components/spamitems/spamItems.html',
+			controller: SpamItemsComponentController
+		});
 
 	SpamItemsComponentController.$inject = ['MailBoxService', '$scope'];
 	function SpamItemsComponentController(MailBoxService, $scope) {
-this.data = MailBoxService.data;
-this.deleteMessageMsg = MailBoxService.deleteMessageMsg;
+		this.data = MailBoxService.data;
+		this.deleteMessageMsg = MailBoxService.deleteMessageMsg;
+		this.showDraftMessage = MailBoxService.showDraftMessage;
+		this.showSentMessage = MailBoxService.showSentMessage;
+		this.selectAll = false;
+
 		// this.sortType = "";
 		this.searchQuery = "";
 		this.removeMail = function(mail) {
 			MailBoxService.removeMail(mail._id)
 		};
 
-		this.getSelectedItems = function() {
-			var mails = this.data.spam;
-			var selectedMails = [];
-			for (var i = 0; i < mails.length; i++) {
-				if(mails[i].selected  ||  mails[i].checked == 'checked') {
-					selectedMails.push(mails[i]);
-				} else {
-					continue;
-				}
-			}
-			return selectedMails
+		this.checkAll = ()=> {
+			this.data.spam.forEach((item)=> {
+				item.selected = this.selectAll;
+		})
 		}
 
 		this.removeMultiple = function() {
 			this.getSelectedItems().forEach(function(mail){
 				MailBoxService.removeMail(mail._id)
 			})
-		}
+		};
 
-
-	this.showDraftMessage = MailBoxService.showDraftMessage;
-	this.showSentMessage = MailBoxService.showSentMessage;
-
-	$scope.$on('$stateChangeStart', function() {
-		MailBoxService.showDraftMessage.value = false;
-		MailBoxService.showSentMessage.value = false;
-
-	})
-
+		$scope.$on('$stateChangeStart', function() {
+			MailBoxService.showDraftMessage.value = false;
+			MailBoxService.showSentMessage.value = false;
+		})
 	};
-
 })();

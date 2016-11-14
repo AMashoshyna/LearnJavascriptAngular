@@ -9,11 +9,7 @@
 		index:'<',
 		removeUser: '&'
 	},
-      templateUrl: 'src/UserData/usercard/userCardTemplate.html',
-      controller: UserCardController 
+      templateUrl: 'src/UserData/components/usercard/userCardTemplate.html',
   });
 
-	function UserCardController(UserCardService) {
-	var ctrl = this;
-}
 })();

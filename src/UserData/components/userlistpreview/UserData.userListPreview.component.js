@@ -2,7 +2,7 @@
 	'use strict';
 angular.module('UserData')
 .component('userListPreview', {
-	templateUrl: 'src/UserData/userlistpreview/userListPreview.html',
+	templateUrl: 'src/UserData/components/userlistpreview/userListPreview.html',
 	controller: userListPreviewController
 })
 

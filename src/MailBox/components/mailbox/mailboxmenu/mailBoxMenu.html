@@ -1,0 +1,12 @@
+<div  id="categories-container">
+	<div class="navbar">
+		<a ui-sref="newmail"><div class="list-group-item item-clickable new-mail" >COMPOSE</div></a>
+		<p></p>
+		<p></p>
+		<a ui-sref="inbox({removeMail: $ctrl.removeMail})"
+		ng-click="dimMe = true" ><div class="list-group-item " ng-class="{active:$ctrl.$state.includes('inbox')}">INBOX ({{$ctrl.data.inbox.length}})</div></a>
+		<a ui-sref="drafts" class="mailbox-menu-item"><div class="list-group-item" ng-class="{active:$ctrl.$state.includes('drafts')}">DRAFTS ({{$ctrl.data.drafts.length}})</div></a>
+		<a ui-sref="sent" class="mailbox-menu-item"><div class="list-group-item" ng-class="{active:$ctrl.$state.includes('sent')}">SENT ({{$ctrl.data.sent.length}})</div></a>
+		<a ui-sref="spam" class="mailbox-menu-item"><div class="list-group-item">SPAM ({{$ctrl.data.spam.length}})</div></a>
+	</div>
+</div> 

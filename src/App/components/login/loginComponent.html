@@ -23,7 +23,7 @@
     placeholder="Password" required=""
     ng-model="$ctrl.password">
     <button class="btn btn-lg btn-primary btn-block" 
-    ng-click="$ctrl.checkCredentials({email: $ctrl.email, password: $ctrl.password})">Sign in</button>
+    ng-click="$ctrl.checkCredentials($ctrl.email, $ctrl.password)">Sign in</button>
   </form>
 </div>
 <loading-spinner ng-if="$ctrl.showSpinner"></loading-spinner>

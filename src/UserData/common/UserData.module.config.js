@@ -10,9 +10,8 @@
 		.state('list', {
 			url: '/list',
 			parent: 'users',
-			template: '<user-list></user-list>',
+			template: '<user-list></user-list>'
 		})
-
 		.state('userdetail', {
 			url: '/userdetail:userId',
 			parent: 'users',

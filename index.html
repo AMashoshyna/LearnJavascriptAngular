@@ -7,11 +7,6 @@
   <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body ng-app="myApp">
-<!-- <pre id="uiRouterInfo">
-      $state = {{$state.current.name}}
-      $stateParams = {{$stateParams}}
-      $state full url = {{ $state.$current.url.source }}    
-</pre> -->
 
 <ui-view></ui-view>
 <!-- Libraries -->
@@ -21,70 +16,45 @@
 
 
 <!-- Modules -->
-<script src="src/UserData/UserData.module.js"></script>
-<script src="src/MailBox/MailBox.module.js"></script>
-<script src="src/App/App.module.js"></script>
+<script src="src/UserData/common/UserData.module.js"></script>
+<script src="src/MailBox/common/MailBox.module.js"></script>
+<script src="src/App/common/App.module.js"></script>
 
 <!-- myApp artifacts -->
-<script src="src/App/wrapper/App.module.wrapper.component.js"></script>
-<script src="src/App/login/App.module.login.component.js"></script>
-<script src="src/App/spinner/App.module.spinner.component.js"></script>
+<script src="src/App/components/wrapper/App.module.wrapper.component.js"></script>
+<script src="src/App/components/login/App.module.login.component.js"></script>
+<script src="src/App/components/spinner/App.module.spinner.component.js"></script>
 <script src="src/App/data/App.module.access.service.js"></script>
-<script src="src/App/App.module.config.js"></script>
+<script src="src/App/common/App.module.config.js"></script>
 
 
 <!-- UserData artifacts -->
-<script src="src/UserData/newuserinput/UserData.newUserInput.component.js"></script>
-<script src="src/UserData/newuserform/UserData.newUserForm.component.js"></script>
-<script src="src/UserData/usercard/UserData.userCard.component.js"></script>
-<script src="src/UserData/usercardfull/UserData.userCardFull.component.js"></script>
-<script src="src/UserData/userlist/UserData.userList.component.js"></script>
-<script src="src/UserData/profile/UserData.Profile.component.js"></script>
-<script src="src/UserData/userlistpreview/UserData.userListPreview.component.js"></script>
-<script src="src/UserData/editprofile/UserData.editProfile.component.js"></script>
+<script src="src/UserData/components/newuserinput/UserData.newUserInput.component.js"></script>
+<script src="src/UserData/components/newuserform/UserData.newUserForm.component.js"></script>
+<script src="src/UserData/components/usercard/UserData.userCard.component.js"></script>
+<script src="src/UserData/components/usercardfull/UserData.userCardFull.component.js"></script>
+<script src="src/UserData/components/userlist/UserData.userList.component.js"></script>
+<script src="src/UserData/components/profile/UserData.Profile.component.js"></script>
+<script src="src/UserData/components/userlistpreview/UserData.userListPreview.component.js"></script>
+<script src="src/UserData/components/editprofile/UserData.editProfile.component.js"></script>
 <script src="src/UserData/data/UserData.UserCard.service.js"></script>
-<script src="src/UserData/UserData.module.config.js"></script>
+<script src="src/UserData/common/UserData.module.config.js"></script>
 
 <!-- MailBox artifacts -->
-<script src="src/MailBox/mailbox/MailBox.mailBox.component.js"></script>
-<script src="src/MailBox/mailbox/mailboxmenu/MailBox.mailBoxMenu.component.js"></script>
-<script src="src/MailBox/mailitemfullview/MailBox.mailItemFullView.component.js"></script>
-<script src="src/MailBox/maillist/MailBox.mailList.component.js"></script>
-<script src="src/MailBox/newmail/MailBox.newMail.component.js"></script>
-<script src="src/MailBox/sentitems/MailBox.sentItems.component.js"></script>
-<script src="src/MailBox/draftitems/MailBox.draftItems.component.js"></script>
-<script src="src/MailBox/spamitems/MailBox.spamItems.component.js"></script>
-<script src="src/MailBox/mailfolders/MailBox.mailFolders.component.js"></script>
+<script src="src/MailBox/components/mailbox/MailBox.mailBox.component.js"></script>
+<script src="src/MailBox/components/mailbox/mailboxmenu/MailBox.mailBoxMenu.component.js"></script>
+<script src="src/MailBox/components/mailitemfullview/MailBox.mailItemFullView.component.js"></script>
+<script src="src/MailBox/components/maillist/MailBox.mailList.component.js"></script>
+<script src="src/MailBox/components/newmail/MailBox.newMail.component.js"></script>
+<script src="src/MailBox/components/sentitems/MailBox.sentItems.component.js"></script>
+<script src="src/MailBox/components/draftitems/MailBox.draftItems.component.js"></script>
+<script src="src/MailBox/components/spamitems/MailBox.spamItems.component.js"></script>
+<script src="src/MailBox/components/mailfolders/MailBox.mailFolders.component.js"></script>
 <script src="src/MailBox/data/MailBox.mailBox.service.js"></script>
-<script src="src/MailBox/MailBox.module.config.js"></script>
+<script src="src/MailBox/common/MailBox.module.config.js"></script>
 
 <script src="https://use.fontawesome.com/fd044d6fe0.js"></script>
 
-<script>
-// 	var $rootScope = angular.element(document.querySelectorAll('[ui-view]')[0]).injector().get('$rootScope');
- 
-// $rootScope.$on('$stateChangeStart',function(event, toState, toParams, fromState, fromParams){
-//   console.log('$stateChangeStart to '+toState.to+'- fired when the transition begins. toState,toParams : \n',toState, toParams);
-// });
- 
-// $rootScope.$on('$stateChangeError',function(event, toState, toParams, fromState, fromParams){
-//   console.log('$stateChangeError - fired when an error occurs during transition.');
-//   console.log(arguments);
-// });
- 
-// $rootScope.$on('$stateChangeSuccess',function(event, toState, toParams, fromState, fromParams){
-//   console.log('$stateChangeSuccess to '+toState.name+'- fired once the state transition is complete.');
-// });
- 
-// $rootScope.$on('$viewContentLoaded',function(event){
-//   console.log('$viewContentLoaded - fired after dom rendered',event);
-// });
- 
-// $rootScope.$on('$stateNotFound',function(event, unfoundState, fromState, fromParams){
-//   console.log('$stateNotFound '+unfoundState.to+'  - fired when a state cannot be found by its name.');
-//   console.log(unfoundState, fromState, fromParams);
-// });
-</script>
 </body>
 </html>
 

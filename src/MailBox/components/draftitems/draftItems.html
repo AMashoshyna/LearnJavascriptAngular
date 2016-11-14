@@ -1,46 +1,45 @@
-      <div id="detail-view" class="detail-view col-sm-10">
-<div class="container-fluid">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <div class="panel-title">
-        <h4>Draft mails</h4>
-        <form>
-        <div class="form-group">
-        <div class="input-group">
-        <div class="input-group-addon">
-          <i class="fa fa-search"></i>
+<div id="detail-view" class="detail-view col-sm-10">
+  <div class="container-fluid">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="panel-title">
+          <h4>Draft mails</h4>
+          <form>
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="fa fa-search"></i>
+                </div>
+                <input type="text" class="form-control" placeholder="Search... " name="" ng-model="$ctrl.searchQuery">
+              </div>
+              <input type="checkbox" class="checkbox checkbox-inline big-checkbox" ng-model="$ctrl.selectAll" ng-click="$ctrl.checkAll()">
+              <input type="submit" class="btn btn-default" ng-disabled="$ctrl.data.draftsGetSelected()==0" ng-click="$ctrl.removeMultiple()" value="delete">
+            </div>
+          </form>
         </div>
-          <input type="text" class="form-control" placeholder="Search... " name="" ng-model="$ctrl.searchQuery">
-        </div>
-        <input type="checkbox" class="checkbox checkbox-inline big-checkbox" ng-model="$ctrl.selectAll">
-        <input type="submit" class="btn btn-default" ng-disabled="$ctrl.getSelectedItems().length==0" ng-click="$ctrl.removeMultiple()" value="delete">
-          
-        </div>
-        </form>
-    </div>
-    </div>
-    <div class="panel-body">
-      <table class="table table-bordered table-striped">
-        <thead>
+      </div>
+      <div class="panel-body">
+        <table class="table table-bordered table-striped">
+          <thead>
           <tr class="row">
             <th><a></a></th>
             <th><a ng-click="$ctrl.sortType = 'to'">From
-            <span ng-show="$ctrl.sortType == 'to'" class="fa fa-caret-down">
+              <span ng-show="$ctrl.sortType == 'to'" class="fa fa-caret-down">
             </span></a></th>
             <th><a ng-click="$ctrl.sortType = 'subject'">Subject
-            <span ng-show="$ctrl.sortType == 'subject'" class="fa fa-caret-down">
+              <span ng-show="$ctrl.sortType == 'subject'" class="fa fa-caret-down">
             </span></a></th></a></th>
           </tr>
-        </thead>
-        <tbody>
+          </thead>
+          <tbody>
           <tr class="row row-clickable" ng-repeat="mail in $ctrl.data.drafts | orderBy: $ctrl.sortType:sortReverse | filter: {to: $ctrl.searchQuery}"  href="javascript:;">
-          <td><input type="checkbox" name="" class="checkbox checkbox-inline big-checkbox" ng-model="mail.selected" ng-checked="$ctrl.selectAll"></td>
+            <td><input type="checkbox" name="" class="checkbox checkbox-inline big-checkbox" ng-model="mail.selected"></td>
             <td><a ui-sref="mailfullview({index:$index, mailId: mail._id, removeMail: $ctrl.removeMail})">{{mail.to}}</a></td>
             <td><a ui-sref="mailfullview({index:$index, mailId: mail._id, removeMail: $ctrl.removeMail})">{{mail.subject}}</a></td>
           </tr>
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-</div>
 </div>

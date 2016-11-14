@@ -2,10 +2,7 @@
 	'use strict';
 angular.module('UserData')
 .component('newUserForm', {
-	templateUrl: 'src/UserData/newuserform/newUserForm.html',
-	bindings: {
-
-	},
+	templateUrl: 'src/UserData/components/newuserform/newUserForm.html',
 	controller: UserFormController
 })
 
@@ -19,14 +16,12 @@ function UserFormController(UserCardService, $state) {
 		address: '',
 		avatar: ''
 	};
-	
 
 	this.addUser = function(user) {
 		user.fullName = user.firstName + ' '+ user.lastName;
-		this.user = UserCardService.addUser(user).then(response=>{
+		this.user = UserCardService.addUser(user).then((response)=>{
 			$state.go('userdetail', {'userId': response._id})
 		})
 	}
-
 }
 })(); 

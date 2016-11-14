@@ -2,7 +2,7 @@
 		'use strict';
 		angular.module('MailBox')
 		.component('mailItemFullView', {
-			templateUrl: 'src/MailBox/mailitemfullview/mailItemFullView.html',
+			templateUrl: 'src/MailBox/components/mailitemfullview/mailItemFullView.html',
 			bindings: {
 				mail: '<',
 			},
@@ -12,8 +12,6 @@
 
 		MailItemFullViewController.$inject = ['MailBoxService', '$state']
 		function MailItemFullViewController(MailBoxService, $state) {
-       
-
 			this.removeMail = function (mailId) {
 				MailBoxService.removeMail(mailId).then(()=> {
 				$state.go('inbox');

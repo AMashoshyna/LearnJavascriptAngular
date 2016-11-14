@@ -2,9 +2,8 @@
 
 angular.module('myApp')
 .component('wrapperElement', {
-	templateUrl: 'src/App/wrapper/wrapperComponent.html',
+	templateUrl: 'src/App/components/wrapper/wrapperComponent.html',
 	controller: AppModuleController
-	
 });
 
 AppModuleController.$inject = ['AccessControl', '$state'];
