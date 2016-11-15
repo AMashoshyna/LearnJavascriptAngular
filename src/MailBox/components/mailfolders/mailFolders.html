@@ -1,15 +1,14 @@
-
 <div class="container">
-<h3>Available mail folders:</h3>
-<ul ng-repeat="folder in $ctrl.folders | orderBy: 'priority'">
-	<li>
-	<div>{{folder.title}}</div>
-	<div>{{folder._id}}</div>
-	<div>{{$ctrl.getItemNumber(folder.title)}}</div>
-		<button ng-if="folder.removeable" ng-click = "$ctrl.removeFolder(folder)">REMOVE</button>
-	</li>
-</ul>
-<h3>Add new folder: </h3>
-<input ng-model = "$ctrl.newFolderName"placeholder="Enter folder name here">
-<button  ng-click = "$ctrl.addFolder($ctrl.newFolderName)">ADD FOLDER</button>
+	<h3>Available mail folders:</h3>
+	<ul ng-repeat="folder in $ctrl.folders | orderBy: 'priority'">
+		<li>
+			<div>{{folder.title}}</div>
+			<div>{{folder._id}}</div>
+			<div>{{$ctrl.getItemNumber(folder.title)}}</div>
+			<button ng-if="folder.removeable" ng-click = "$ctrl.removeFolder(folder)">REMOVE</button>
+		</li>
+	</ul>
+	<h3>Add new folder: </h3>
+	<input ng-model = "$ctrl.newFolderName"placeholder="Enter folder name here">
+	<button  ng-click = "$ctrl.addFolder($ctrl.newFolderName)">ADD FOLDER</button>
 </div>

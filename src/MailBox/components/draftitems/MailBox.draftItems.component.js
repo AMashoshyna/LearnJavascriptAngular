@@ -28,7 +28,7 @@
 			this.getSelectedItems().forEach(function(mail){
 				MailBoxService.removeMail(mail._id)
 			})
-		}
+		};
 
 		this.showDraftMessage = MailBoxService.showDraftMessage;
 		this.showSentMessage = MailBoxService.showSentMessage;

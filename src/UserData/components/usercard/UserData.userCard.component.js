@@ -11,5 +11,4 @@
 	},
       templateUrl: 'src/UserData/components/usercard/userCardTemplate.html',
   });
-
 })();

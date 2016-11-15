@@ -4,7 +4,7 @@
 	.component('editProfile', {
 		templateUrl: 'src/UserData/components/editprofile/editProfile.html',
 		bindings: {
-			user: '<',
+			user: '<'
 		},
 		controller: EditProfileController
 	});

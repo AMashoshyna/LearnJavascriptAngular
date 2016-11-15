@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 	angular.module('myApp')
-		.config(RouterConfig)
+		.config(RouterConfig);
 
 	RouterConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
 	function RouterConfig($stateProvider, $urlRouterProvider) {
@@ -10,12 +10,11 @@
 
 		$stateProvider
 			.state('start', {
-				// url: '/',
-				template: `<wrapper-element></wrapper-element>`
+				template: '<wrapper-element></wrapper-element>'
 			})
 			.state('login', {
 				url: '/login',
-				template: `<login></login>`,
+				template: '<login></login>'
 			})
 			.state('success', {
 				template: '<welcome username="$ctrl.username"></welcome>',
@@ -28,7 +27,7 @@
 					this.username = username;
 				}],
 				onEnter: function($state, $timeout) {
-					$timeout(()=>{$state.go('inbox')},3000)
+					$timeout(()=>{$state.go('inbox')}, 3000)
 				},
 				resolve: {
 					username: ['AccessControl', function(AccessControl) {
@@ -47,7 +46,7 @@
 			.state('mails', {
 				abstract: true,
 				parent:'start',
-				template: `<mailbox mails="mailsCtrl"></mailbox>`,
+				template: `<mailbox></mailbox>`,
 				controller: ['MailBoxService', function(MailBoxService) {
 					MailBoxService.getAllMails();
 				}]

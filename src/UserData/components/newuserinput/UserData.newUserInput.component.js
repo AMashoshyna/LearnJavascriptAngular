@@ -11,7 +11,7 @@
 			controller: newUserInputController
 		});
 
-	function newUserInputController(UserCardService) {
+	function newUserInputController() {
 		var ctrl = this;
 
 		ctrl.newUser = {

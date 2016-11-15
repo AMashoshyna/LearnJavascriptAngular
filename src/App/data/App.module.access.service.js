@@ -19,7 +19,7 @@
     this.checkUser = function (email, password) {
       var deferred = $q.defer();
       if((email===this.testAccount.email)
-          & password === this.testAccount.password) {
+          && password === this.testAccount.password) {
         this.currentUser.username = this.testAccount.username;
         localStorage.user = angular.toJson(this.currentUser);
         this.auth.isAuth = true;

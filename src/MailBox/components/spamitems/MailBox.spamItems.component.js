@@ -14,7 +14,6 @@
 		this.showSentMessage = MailBoxService.showSentMessage;
 		this.selectAll = false;
 
-		// this.sortType = "";
 		this.searchQuery = "";
 		this.removeMail = function(mail) {
 			MailBoxService.removeMail(mail._id)
@@ -24,7 +23,7 @@
 			this.data.spam.forEach((item)=> {
 				item.selected = this.selectAll;
 		})
-		}
+		};
 
 		this.removeMultiple = function() {
 			this.getSelectedItems().forEach(function(mail){

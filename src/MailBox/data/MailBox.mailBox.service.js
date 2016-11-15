@@ -1,18 +1,16 @@
 (function() {
     'use strict';
     angular.module('MailBox')
-
         .service('MailBoxService', MailBoxService);
 
-    MailBoxService.$inject = ['$http','$timeout', 'apiPath'];
-    function MailBoxService($http, $timeout, apiPath) {
+    MailBoxService.$inject = ['$http','apiPath'];
+    function MailBoxService($http, apiPath) {
         var service = this;
         service.mailboxes;
         service.mailbox;
 
-
         /* -----MAILBOXES MANAGEMENT------*/
-        this.mailBoxCreation = function(mailbox) {
+        this.mailBoxCreation = function() {
             $http.get(apiPath + '/mailboxes')
                 .then((response) => response.data)
             .then((data) => {service.mailboxes =data;
@@ -24,7 +22,7 @@
 
         this.makeNewMailBox = function(mailboxname) {
             return $http.post(apiPath + '/mailboxes', {"title": mailboxname})
-                    .then((response) => {return response.data})
+                    .then((response) => {return response.data});
         };
 
         this.getFolders = function() {

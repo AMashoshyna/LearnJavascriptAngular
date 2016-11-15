@@ -1,23 +1,21 @@
-	(function() {
-		'use strict';
-		angular.module('MailBox')
+(function() {
+	'use strict';
+	angular.module('MailBox')
 		.component('mailItemFullView', {
 			templateUrl: 'src/MailBox/components/mailitemfullview/mailItemFullView.html',
 			bindings: {
 				mail: '<',
 			},
-			controller: MailItemFullViewController,
+			controller: MailItemFullViewController
 		})
 
 
-		MailItemFullViewController.$inject = ['MailBoxService', '$state']
-		function MailItemFullViewController(MailBoxService, $state) {
-			this.removeMail = function (mailId) {
-				MailBoxService.removeMail(mailId).then(()=> {
+	MailItemFullViewController.$inject = ['MailBoxService', '$state']
+	function MailItemFullViewController(MailBoxService, $state) {
+		this.removeMail = function (mailId) {
+			MailBoxService.removeMail(mailId).then(()=> {
 				$state.go('inbox');
-					
-				})
-			}
-
+		})
 		}
-	})();
+	}
+})();

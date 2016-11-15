@@ -1,18 +1,18 @@
 <div  id="detail-view" class="detail-view col-sm-10">
-<div class="form-group">
-<h4>Compose new mail:</h4>
-<label for="to">To: </label>
-<input class="form-control" type="" name="to" ng-model="$ctrl.newMail.to" placeholder="to">
-</div>
-<div class="form-group">
-<label for="subject">Subject: </label>
-<input class="form-control" type="" name="subject" ng-model="$ctrl.newMail.subject" placeholder="subject">
-</div>
-<div class="form-group">
-<label for="text">Text: </label>
-<textarea name="text" class="form-control" placeholder="Enter text here" ng-model="$ctrl.newMail.body" placeholder="text"
-rows="20" cols="50"></textarea><br>
-<button ng-click="$ctrl.addMailWrapper(newMail)" ui-sref="inbox">SEND MAIL</button>
-<button ng-click="$ctrl.saveDraft()" ui-sref="inbox">SAVE DRAFT</button>
-</div>
+    <div class="form-group">
+        <h4>Compose new mail:</h4>
+        <label for="to">To: </label>
+        <input class="form-control" type="" name="to" ng-model="$ctrl.newMail.to" placeholder="to">
+    </div>
+    <div class="form-group">
+        <label for="subject">Subject: </label>
+        <input class="form-control" type="" name="subject" ng-model="$ctrl.newMail.subject" placeholder="subject">
+    </div>
+    <div class="form-group">
+        <label for="text">Text: </label>
+        <textarea name="text" class="form-control" placeholder="Enter text here" ng-model="$ctrl.newMail.body" placeholder="text"
+                  rows="20" cols="50"></textarea><br>
+        <button ng-click="$ctrl.addMailWrapper(newMail)" ui-sref="inbox">SEND MAIL</button>
+        <button ng-click="$ctrl.saveDraft()" ui-sref="inbox">SAVE DRAFT</button>
+    </div>
 </div>

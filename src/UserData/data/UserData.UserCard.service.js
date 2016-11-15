@@ -35,7 +35,6 @@
 		});
 		};
 
-
 		this.addUser = ((newUser) => {
 				return $http.post(apiPath + '/users', newUser)
 					.then((response) => {

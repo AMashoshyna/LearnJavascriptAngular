@@ -6,11 +6,5 @@ angular.module('myApp')
 	bindings: {
 		username: '<'
 	}
-	controller: WelcomeController
 });
-
-WelcomeController.$inject = [];
-function WelcomeController() {
-
-}
 
