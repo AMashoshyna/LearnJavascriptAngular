@@ -1,5 +1,4 @@
-
-
+(function() {
 angular.module('myApp')
 .component('wrapperElement', {
 	templateUrl: 'src/App/components/wrapper/wrapperComponent.html',
@@ -16,4 +15,4 @@ function AppModuleController(AccessControl, $state) {
 	}
 	this.$state = $state;
 }
-
+})();

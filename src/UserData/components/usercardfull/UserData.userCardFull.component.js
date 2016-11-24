@@ -13,7 +13,7 @@
 
 	UserCardFullController.$inject = ['UserCardService', '$state'];
 	function UserCardFullController(UserCardService, $state) {
-		this.userData = UserCardService.userData;
+		this.userData = UserCardService.allUsersData;
 		this.removeUser = function(user){
 			confirm('Are you sure you want to delete this user from contact list?');
 			UserCardService.removeUser(user);

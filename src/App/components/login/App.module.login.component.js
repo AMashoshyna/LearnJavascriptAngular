@@ -1,16 +1,15 @@
-
 (function() {
 	angular.module('myApp')
 		.component('login', {
 			templateUrl: 'src/App/components/login/loginComponent.html',
 			bindings: {
-				showSpinner: '<',
+				showSpinner: '<'
 			},
 			controller: LoginComponentController
 		});
 
-	LoginComponentController.$inject = ['AccessControl', '$stateParams','$state'];
-	function LoginComponentController(AccessControl, $stateParams,$state) {
+	LoginComponentController.$inject = ['AccessControl', '$state'];
+	function LoginComponentController(AccessControl, $state) {
 		this.email = "test@mail.com";
 		this.password = "test";
 		this.loginResponse ='';

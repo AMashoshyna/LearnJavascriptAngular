@@ -4,6 +4,11 @@
 
   AccessControl.$inject = ['$q'];
   function AccessControl($q) {
+    this.checkLogin = checkLogin;
+    this.checkUser = checkUser;
+    this.getCurrentUser = getCurrentUser;
+    this.logout = logout;
+
     this.testAccount = {
       username: 'John Doe',
       email: 'test@mail.com',
@@ -16,7 +21,7 @@
       isAuth: false
     };
 
-    this.checkUser = function (email, password) {
+    function checkUser (email, password) {
       var deferred = $q.defer();
       if((email===this.testAccount.email)
           && password === this.testAccount.password) {
@@ -29,22 +34,22 @@
         deferred.reject("email or password incorrect")
       }
       return deferred.promise;
-    };
+    }
 
-    this.logout = function() {
+    function logout (){
       this.auth.isAuth = false;
       localStorage.auth = false;
       this.currentUser.username = 'Guest'
-    };
+    }
 
-    this.getCurrentUser = function() {
+    function getCurrentUser (){
       if(localStorage.user !== undefined) {
         this.currentUser = angular.fromJson(localStorage.user);
       }
       return this.currentUser;
-    };
+    }
 
-    this.checkLogin = function() {
+    function checkLogin () {
       if(localStorage.auth !== undefined) {
         this.auth.isAuth = localStorage.auth;
       }

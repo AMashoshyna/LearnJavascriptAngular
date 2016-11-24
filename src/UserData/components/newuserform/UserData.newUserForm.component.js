@@ -18,6 +18,7 @@ function UserFormController(UserCardService, $state) {
 	};
 
 	this.addUser = function(user) {
+		debugger;
 		user.fullName = user.firstName + ' '+ user.lastName;
 		this.user = UserCardService.addUser(user).then((response)=>{
 			$state.go('userdetail', {'userId': response._id})

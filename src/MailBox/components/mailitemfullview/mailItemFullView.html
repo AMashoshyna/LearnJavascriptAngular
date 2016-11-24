@@ -9,4 +9,5 @@
 		{{$ctrl.mail.body}}
 	</div>
 	<button class="btn btn-default btn-primary" ng-click="$ctrl.removeMail($ctrl.mail._id)">REMOVE MAIL</button>
+	<button class="btn btn-default btn-primary" ui-sref="editmailitem({mailId: $ctrl.mail._id})">EDIT MAIL</button>
 </div>

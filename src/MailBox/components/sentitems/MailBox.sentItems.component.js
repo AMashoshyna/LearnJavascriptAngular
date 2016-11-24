@@ -9,6 +9,7 @@
 	SentItemsComponentController.$inject = ['MailBoxService','$scope'];
 	function SentItemsComponentController(MailBoxService, $scope) {
 		this.data = MailBoxService.data;
+		this.getSelectedSentItems = () => MailBoxService.getSelectedSentItems();
 		this.selectAll = false;
 
 		this.checkAll = ()=> {

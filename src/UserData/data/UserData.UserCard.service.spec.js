@@ -1,0 +1,3 @@
+describe('UserCardService', function() {
+
+});

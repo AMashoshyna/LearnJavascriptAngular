@@ -30,7 +30,8 @@
                              </form>
                      </div>
                      <div class="panel-footer">
-                      <a ng-click="$ctrl.addUser($ctrl.user)" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-success" ng-disabled="userForm.$invalid"><i class="glyphicon glyphicon-ok"></i></a>
+                         <div>{{userForm.$valid}}</div>
+                      <div ng-click="userForm.$invalid || $ctrl.addUser($ctrl.user)" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-success" ng-disabled="userForm.$invalid"><i class="glyphicon glyphicon-ok"></i></div>
                       <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger" ui-sref="userdetail"><i class="glyphicon glyphicon-remove"></i></a>
 
               </div>

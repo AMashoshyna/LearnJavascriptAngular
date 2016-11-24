@@ -4,10 +4,10 @@
 		.component('mailItemFullView', {
 			templateUrl: 'src/MailBox/components/mailitemfullview/mailItemFullView.html',
 			bindings: {
-				mail: '<',
+				mail: '<'
 			},
 			controller: MailItemFullViewController
-		})
+		});
 
 
 	MailItemFullViewController.$inject = ['MailBoxService', '$state']
@@ -16,6 +16,6 @@
 			MailBoxService.removeMail(mailId).then(()=> {
 				$state.go('inbox');
 		})
-		}
+		};
 	}
 })();

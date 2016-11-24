@@ -33,14 +33,14 @@
 					username: ['AccessControl', function(AccessControl) {
 						return AccessControl.getCurrentUser().username
 					}]
-				},
+				}
 			})
 			.state('users', {
 				abstract: true,
 				parent:'start',
 				template: `<user-list-preview></user-list-preview><ui-view><loading-spinner></loading-spinner></ui-view>`,
 				controller: ['UserCardService', function(UserCardService) {
-					UserCardService.getUserData();
+					UserCardService.getAllUsers();
 				}]
 			})
 			.state('mails', {

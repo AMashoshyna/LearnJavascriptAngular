@@ -7,8 +7,7 @@
 		})
 
 	function userListPreviewController(UserCardService) {
-		this.usersData = UserCardService.usersData;
+		this.usersData = UserCardService.allUsersData;
 		this.searchQuery = '';
-		console.log(this.usersData)
 	}
 })();

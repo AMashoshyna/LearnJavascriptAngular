@@ -10,7 +10,7 @@
 	function UserListController(UserCardService) {
 		var ctrl = this;
 		ctrl.userData;
-		UserCardService.getUserData().then((response) => ctrl.userData = response);
+		UserCardService.getAllUsers().then((response) => ctrl.userData = response);
 
 		ctrl.addUser = function(user) {
 			UserCardService.addUser(user).then((response) => {

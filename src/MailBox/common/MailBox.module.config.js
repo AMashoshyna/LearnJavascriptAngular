@@ -2,7 +2,7 @@
 	'use strict';
 
 	angular.module('MailBox')
-		.config(RouterConfig)
+		.config(RouterConfig);
 
 	RouterConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
 	function RouterConfig($stateProvider, $urlRouterProvider) {
@@ -13,18 +13,17 @@
 				parent:'mails',
 				template: `<mail-list></mail-list>`,
 				params: {
-					mailId: null,
-				},
+					mailId: null
+				}
 			})
 			.state('newmail', {
 				url: '/newmail:?useremail',
 				parent:'mails',
 				params: {
-					useremail: null,
+					useremail: null
 				},
 				template: `<new-mail></new-mail>`
 			})
-
 			.state('mailfullview', {
 				url: '/mailfullview/:mailId' ,
 				parent:'mails',
@@ -36,7 +35,7 @@
 				resolve: {
 					mail: ['$stateParams', 'MailBoxService',
 						function($stateParams, MailBoxService) {
-							return MailBoxService.getMail($stateParams.mailId);
+							return MailBoxService.getOneMail($stateParams.mailId);
 						}]
 				},
 				controller: ['mail', function(mail) {
@@ -49,15 +48,15 @@
 				url: '/mailsent',
 				parent:'mails',
 				onEnter: function($state, $timeout) {
-					$timeout(()=>{$state.go('inbox')},2000)
-				},
+					$timeout(()=>{$state.go('inbox')}, 2000)
+				}
 			})
 			.state('draftsaved', {
 				template: '<div class="panel panel-info"><h4>Your draft has been saved.</h4></div>',
 				url: '/draftsaved',
 				parent:'mails',
 				onEnter: function($state, $timeout) {
-					$timeout(()=>{$state.go('inbox')},2000)
+					$timeout(()=>{$state.go('inbox')}, 2000)
 				}
 			})
 			.state('drafts', {
@@ -74,6 +73,23 @@
 				url: '/sent',
 				parent: 'mails',
 				template: '<sent-items></sent-items>'
+			})
+			.state('editmailitem', {
+				url: '/edit/:mailId',
+				parent: 'mails',
+				template: '<edit-mail-item mail = "editMailCtrl.mail"></edit-mail-item>',
+				params: {
+					mailId: null
+				},
+				resolve: {
+					mail: ['MailBoxService', '$stateParams', function(MailBoxService, $stateParams) {
+						return MailBoxService.getOneMail($stateParams.mailId)
+					}]
+				},
+				controller: ['mail', function(mail) {
+					this.mail = mail;
+				}],
+				controllerAs: 'editMailCtrl'
 			})
 			.state('folders', {
 				url:  '/folders',
@@ -99,7 +115,6 @@
 							});
 						return folders;
 					})
-
 					}]
 				},
 				controller: ['folders', function(folders) {

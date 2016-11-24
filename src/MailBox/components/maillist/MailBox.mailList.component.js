@@ -19,6 +19,7 @@
 		this.selectAll = false;
 		this.showDraftMessage = MailBoxService.showDraftMessage;
 		this.showSentMessage = MailBoxService.showSentMessage;
+		this.getSelectedInboxItems = () => MailBoxService.getSelectedInboxItems();
 
 		this.removeMail = function(mail) {
 			MailBoxService.removeMail(mail._id)
@@ -32,13 +33,13 @@
 
 		this.removeMultiple = function() {
 			confirm("Are you sure you want to delete selected items?");
-			this.getSelectedItems().forEach(function(mail){
+			this.getSelectedInboxItems().forEach(function(mail){
 				MailBoxService.removeMail(mail._id)
 			})
 		};
 
 		this.moveToSpam = function() {
-			this.getSelectedItems().forEach(function(mail){
+			this.getSelectedInboxItems().forEach(function(mail){
 				MailBoxService.moveToSpam(mail)
 			})
 		};

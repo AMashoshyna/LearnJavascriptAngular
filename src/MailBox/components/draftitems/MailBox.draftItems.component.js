@@ -11,6 +11,7 @@
 		MailBoxService.getAllMails();
 		this.data = MailBoxService.data;
 		this.selectAll = false;
+		this.getSelectedDraftsItems = () => MailBoxService.getSelectedDraftsItems();
 
 		this.deleteMessageMsg = MailBoxService.deleteMessageMsg;
 		this.searchQuery = "";
@@ -25,7 +26,7 @@
 		}
 
 		this.removeMultiple = function() {
-			this.getSelectedItems().forEach(function(mail){
+			this.getSelectedDraftsItems().forEach(function(mail){
 				MailBoxService.removeMail(mail._id)
 			})
 		};

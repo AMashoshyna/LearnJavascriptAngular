@@ -9,6 +9,7 @@
 	SpamItemsComponentController.$inject = ['MailBoxService', '$scope'];
 	function SpamItemsComponentController(MailBoxService, $scope) {
 		this.data = MailBoxService.data;
+		this.getSelectedSpamItems = () => MailBoxService.getSelectedSpamItems();
 		this.deleteMessageMsg = MailBoxService.deleteMessageMsg;
 		this.showDraftMessage = MailBoxService.showDraftMessage;
 		this.showSentMessage = MailBoxService.showSentMessage;
@@ -26,7 +27,7 @@
 		};
 
 		this.removeMultiple = function() {
-			this.getSelectedItems().forEach(function(mail){
+			this.getSelectedSpamItems().forEach(function(mail){
 				MailBoxService.removeMail(mail._id)
 			})
 		};
