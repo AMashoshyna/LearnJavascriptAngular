@@ -1,25 +1,29 @@
 (function() {
 	'use strict';
 	angular.module('MailBox')
-		.component('mailFolders', {
-			templateUrl: 'src/MailBox/components/mailfolders/mailFolders.html',
-			bindings: {
-				folders: '<'
-			},
-			controller: FoldersController
-		});
+	.component('mailFolders', {
+		templateUrl: 'src/MailBox/components/mailfolders/mailFolders.html',
+		bindings: {
+			folders: '<'
+		},
+		controller: FoldersController
+	});
 
 	function FoldersController(MailBoxService){
-		this.removeFolder = function(folder) {
+		var ctrl = this;
+		ctrl.addFolder = addFolder;
+		ctrl.removeFolder = removeFolder;
+
+		function removeFolder(folder) {
 			MailBoxService.removeFolder(folder._id)
-				.then(()=> {
+			.then(()=> {
 				this.folders.splice(this.folders.indexOf(folder), 1)
-		});
+			});
 		};
 
-		this.addFolder = function(folderName) {
+		function addFolder(folderName) {
 			MailBoxService.makeNewMailBox(folderName)
-				.then((response) => {
+			.then((response) => {
 				this.folders.push(response)});
 		}
 	}

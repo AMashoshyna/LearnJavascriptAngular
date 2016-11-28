@@ -11,7 +11,7 @@ describe('wrapper component', function() {
         spyOn(AccessControl, 'logout');
         spyOn($state, 'go');
     }));
-    it('logout method calls AccessControl.logout', function(controller) {
+    it('logout method calls AccessControl.logout', function() {
         controller.logout();
         expect(AccessControl.logout).toHaveBeenCalled();
     })

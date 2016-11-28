@@ -1,14 +1,16 @@
 (function() {
 	'use strict';
 	angular.module('MailBox')
-		.component('newMail', {
-			templateUrl: 'src/MailBox/components/newmail/newMail.html',
-			controller: NewMailController,
-		});
+	.component('newMail', {
+		templateUrl: 'src/MailBox/components/newmail/newMail.html',
+		controller: NewMailController
+	});
 
 	NewMailController.$inject = ['MailBoxService','$q', '$stateParams'];
 	function NewMailController(MailBoxService, $q, $stateParams) {
 		var ctrl = this;
+		ctrl.addMailWrapper = addMailWrapper;
+		ctrl.saveDraft = saveDraft;
 		if($stateParams.useremail) {
 			ctrl.newMail = {
 				mailbox: '580c94289de15a250410dbc0',
@@ -25,7 +27,7 @@
 			};
 		};
 
-		ctrl.addMailWrapper = function() {
+		function addMailWrapper() {
 			MailBoxService.newMail(this.newMail);
 			this.newMail = {
 				subject: '',
@@ -34,7 +36,7 @@
 			};
 		};
 
-		ctrl.saveDraft = function() {
+		function saveDraft() {
 			var draft = JSON.parse(JSON.stringify(this.newMail));
 			MailBoxService.saveToDrafts(draft);
 		};

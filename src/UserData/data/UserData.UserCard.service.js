@@ -21,6 +21,7 @@
 			return $http.post(apiPath + '/users', newUser)
 					.then((response) => {
 					this.allUsersData.users.push(response.data);
+					return response.data;
 		})
 		}
 
@@ -35,11 +36,6 @@
 					for (var i = 0; i < response.data.length; i++) {
 				response.data[i] = processName(response.data[i]);
 			}
-			// function processName(user) {
-			//   user.firstName = user.fullName.slice(0, user.fullName.indexOf(' '));
-			//   user.lastName = user.fullName.slice(user.fullName.indexOf(' ') + 1, user.fullName.length)
-			//   return user;
-			// }
 			service.allUsersData.users = response.data;
 			return response.data;
 		})
@@ -49,6 +45,7 @@
 			return $http.get(apiPath + '/users/' + userId)
 				.then((response) => {
 				service.singleUserData.user = response.data;
+				return response.data;
 		})
 		}
 

@@ -5,41 +5,46 @@
         </div>
         <div class="panel-body">
           <div class="row">
-<!--             <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> </div> -->
+            <!--             <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> </div> -->
             <div class=" col-md-12 col-lg-12 "> 
               <form name="userdata" novalidate class="form-group">
                 <div class="form-group">                
                   <label for="name">Name</label>
-                  <input type="text" name="name" class="form-control" ng-model="$ctrl.user.fullName" required>
+                  <input type="text" name="name" class="form-control" ng-model="$ctrl.user.fullName" required minlength="2">
                 </div>
+                <span class="bg-warning" ng-if="(userdata.name.$error.required && userdata.name.$touched)">Name is required</span>
+                <span class="bg-warning" ng-if="(userdata.name.$error.minlength && userdata.name.$touched)">Name should be at leat 2 characters long</span>
                 <div class="form-group">                  
                   <label for="gender">Gender</label>
-                  <input type="radio" name="gender" ng-model="$ctrl.user.gender" value="M">Male
-                  <input type="radio" name="gender" ng-model="$ctrl.user.gender" value="F">Female
+                  <input type="radio" name="gender" ng-model="$ctrl.user.gender" value="M" required>Male
+                  <input type="radio" name="gender" ng-model="$ctrl.user.gender" value="F" required>Female
                 </div>
+                <span class="bg-warning" ng-if="(userdata.email.$error.required &&!userdata.$pristine)">Gender is required</span><br>
                 <div class="form-group">                  
                   <label for="email">Email</label>
-                  <input type="" name="email" class="form-control" ng-model="$ctrl.user.email" required>
+                  <input type="" name="email" class="form-control" ng-model="$ctrl.user.email" required ng-pattern='$ctrl.emailFormat'>
                 </div>
+                <span class="bg-warning" ng-if="(userdata.email.$error.required && userdata.email.$touched)">Email is required!</span>
+                <span class="bg-warning" ng-if="(userdata.email.$invalid && userdata.email.$touched)">Must be a valid email address: address@domain.com format </span>
                 <div class="form-group">                  
                   <label for="address">Address</label>
                   <textarea type="text" name="address" class="form-control" ng-model="$ctrl.user.address" required></textarea>
                 </div>
+                <span class="bg-warning" ng-if="(userdata.address.$error.required && !userdata.$pristine)">Address is required</span><br>
                 <div class="form-group">   
                  <label for="birthdate">Birth date</label> 
                  <input type="date" name="birthdate" class="form-control" ng-model="$ctrl.user.birthdate">
                </div>
+               <span class="bg-warning"  ng-if="(userdata.birthdate.$error.required && userdata.birthdate.$touched)">Birth date is required!</span><br>
              </form>
            </div>
          </div>
        </div>
        <div class="panel-footer">
-
-        <a ng-click="$ctrl.editUserData($ctrl.user)" 
-        data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-success"><i class="glyphicon glyphicon-ok"></i></a>
-        <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
-
-      </div>
-    </div>
-  </div>
-  <!-- </div> -->
+         <a ng-click="$ctrl.editUserData($ctrl.user)" ng-disabled="userdata.$invalid" 
+         data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-success"><i class="glyphicon glyphicon-ok"></i></a>
+         <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+       </div>
+     </div>
+   </div>
+   <!-- </div> -->

@@ -1,32 +1,40 @@
 (function() {
 	'use strict';
 	angular.module('MailBox')
-		.component('spamItems', {
-			templateUrl: 'src/MailBox/components/spamitems/spamItems.html',
-			controller: SpamItemsComponentController
-		});
+	.component('spamItems', {
+		templateUrl: 'src/MailBox/components/spamitems/spamItems.html',
+		controller: SpamItemsComponentController
+	});
 
 	SpamItemsComponentController.$inject = ['MailBoxService', '$scope'];
 	function SpamItemsComponentController(MailBoxService, $scope) {
-		this.data = MailBoxService.data;
-		this.getSelectedSpamItems = () => MailBoxService.getSelectedSpamItems();
-		this.deleteMessageMsg = MailBoxService.deleteMessageMsg;
-		this.showDraftMessage = MailBoxService.showDraftMessage;
-		this.showSentMessage = MailBoxService.showSentMessage;
-		this.selectAll = false;
+		var ctrl = this;
+		ctrl.checkAll = checkAll;
+		ctrl.data = MailBoxService.data;
+		ctrl.getSelectedSpamItems = getSelectedSpamItems;
+		ctrl.deleteMessageMsg = MailBoxService.deleteMessageMsg;
+		ctrl.showDraftMessage = MailBoxService.showDraftMessage;
+		ctrl.showSentMessage = MailBoxService.showSentMessage;
+		ctrl.removeMail = removeMail;
+		ctrl.removeMultiple = removeMultiple;
+		ctrl.selectAll = false;
 
-		this.searchQuery = "";
-		this.removeMail = function(mail) {
+		ctrl.searchQuery = "";
+		function removeMail(mail) {
 			MailBoxService.removeMail(mail._id)
 		};
 
-		this.checkAll = ()=> {
+		function checkAll() {
 			this.data.spam.forEach((item)=> {
 				item.selected = this.selectAll;
-		})
+			})
 		};
 
-		this.removeMultiple = function() {
+		function getSelectedSpamItems(){
+			MailBoxService.getSelectedSpamItems()
+		};
+
+		function removeMultiple() {
 			this.getSelectedSpamItems().forEach(function(mail){
 				MailBoxService.removeMail(mail._id)
 			})

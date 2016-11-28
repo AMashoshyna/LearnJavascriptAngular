@@ -11,13 +11,16 @@
 
 	EditProfileController.$inject = ['UserCardService', '$state'];
 	function EditProfileController(UserCardService, $state) {
+		var ctrl = this;
+		ctrl.editUserData = editUserData;
 
-		this.editUserData = function(user) {
+		function editUserData(user) {
 			UserCardService.editUserData(user).then((response)=> {
 				this.user = response;
 				this.user.birthdate = new Date(Date.parse(response.birthdate));
 				$state.go('userdetail', {'userId': this.user._id})
 			})
 		};
+		this.emailFormat = /^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/;
 	}
 })(); 

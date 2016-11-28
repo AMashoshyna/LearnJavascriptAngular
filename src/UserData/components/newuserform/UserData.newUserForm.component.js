@@ -8,7 +8,9 @@ angular.module('UserData')
 
 UserFormController.$inject = ['UserCardService', '$state'];
 function UserFormController(UserCardService, $state) {
-	this.user = {
+	var ctrl = this;
+	ctrl.addUser = addUser;
+	ctrl.user = {
 		firstName: '',
 		lastName: '',
 		birthDate: '',
@@ -16,11 +18,13 @@ function UserFormController(UserCardService, $state) {
 		address: '',
 		avatar: ''
 	};
+	ctrl.emailFormat = /^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/;
 
-	this.addUser = function(user) {
+	function addUser(user) {
 		debugger;
 		user.fullName = user.firstName + ' '+ user.lastName;
-		this.user = UserCardService.addUser(user).then((response)=>{
+		UserCardService.addUser(user).then((response)=>{
+			this.user = response;
 			$state.go('userdetail', {'userId': response._id})
 		})
 	}

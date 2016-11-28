@@ -13,7 +13,7 @@
 
 	function newUserInputController() {
 		var ctrl = this;
-
+		ctrl.addUserWrapper = addUserWrapper;
 		ctrl.newUser = {
 			email:'john@mail.com',
 			fullName: 'John Doe',
@@ -21,7 +21,7 @@
 			address: '3 Center St.Auburn, NY 13021'
 		};
 
-		ctrl.addUserWrapper = function() {
+		function addUserWrapper() {
 			ctrl.addUser({newUser: ctrl.newUser});
 			ctrl.newUser = {
 				email:'',

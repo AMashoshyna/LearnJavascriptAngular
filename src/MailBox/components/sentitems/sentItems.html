@@ -21,25 +21,25 @@
       <div class="panel-body">
         <table class="table table-bordered table-striped">
           <thead>
-          <tr class="row">
-            <th><a></a></th>
-            <th><a ng-click="$ctrl.sortType = 'to'">From
-              <span ng-show="$ctrl.sortType == 'to'" class="fa fa-caret-down">
-            </span></a></th>
-            <th><a ng-click="$ctrl.sortType = 'subject'">Subject
-              <span ng-show="$ctrl.sortType == 'subject'" class="fa fa-caret-down">
-            </span></a></th></a></th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr class="row row-clickable" ng-repeat="mail in $ctrl.data.sent | orderBy: $ctrl.sortType:sortReverse | filter: $ctrl.searchQuery"  href="javascript:;">
-            <td><input type="checkbox" name="" class="checkbox checkbox-inline big-checkbox" ng-model="mail.selected"></td>
-            <td><a ui-sref="mailfullview({index:$index, mailId: mail._id, removeMail: $ctrl.removeMail})">{{mail.to}}</a></td>
-            <td><a ui-sref="mailfullview({index:$index, mailId: mail._id, removeMail: $ctrl.removeMail})">{{mail.subject}}</a></td>
-          </tr>
-          </tbody>
-        </table>
+            <tr class="row">
+              <th><a></a></th>
+              <th><a ng-click="$ctrl.sortType = 'to'">From
+                <span ng-show="$ctrl.sortType == 'to'" class="fa fa-caret-down">
+                </span></a></th>
+                <th><a ng-click="$ctrl.sortType = 'subject'">Subject
+                  <span ng-show="$ctrl.sortType == 'subject'" class="fa fa-caret-down">
+                  </span></a></th></a></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="row row-clickable" ng-repeat="mail in $ctrl.data.sent | orderBy: $ctrl.sortType:sortReverse | filter: $ctrl.searchQuery"  href="javascript:;">
+                  <td><input type="checkbox" name="" class="checkbox checkbox-inline big-checkbox" ng-model="mail.selected"></td>
+                  <td><a ui-sref="mailfullview({index:$index, mailId: mail._id, removeMail: $ctrl.removeMail})">{{mail.to}}</a></td>
+                  <td><a ui-sref="mailfullview({index:$index, mailId: mail._id, removeMail: $ctrl.removeMail})">{{mail.subject}}</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>

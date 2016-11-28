@@ -1,5 +1,6 @@
 describe('MailBox ui-router', function() {
-    beforeEach(module('MailBox'));
+     beforeEach(module('Routing'));
+
     it("should change to the inbox state", function(){
         inject(function($state, $rootScope){
             $rootScope.$apply(function(){
